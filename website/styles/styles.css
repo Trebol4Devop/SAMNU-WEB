@@ -140,6 +140,55 @@ nav a:hover {
     border: 2px solid #000;
 }
 
+.btn-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(2, 2, 89);
+    color: rgb(255, 255, 255);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+    border: rgb(2, 2, 89) solid 2px;
+    cursor: pointer;
+    min-width: 160px;
+}
+
+.btn-download ion-icon {
+    font-size: 1.4rem;
+}
+
+.btn-download:hover {
+    transform: translateY(-3px);
+    background-color: #ffffff;
+    color: rgb(2, 2, 89);
+}
+
+.btn-secondary-download {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #555;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary-download:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: #999;
+}
+
 .hero-image {
     flex: 1;
     display: flex;
@@ -398,6 +447,22 @@ footer {
 .copyright {
     font-size: 0.8rem;
     opacity: 0.5;
+}
+
+.download-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 3%;
+}
+
+.os-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 1024px) {
