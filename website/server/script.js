@@ -22,12 +22,12 @@ async function descargarDesdeGithub(url, nombreArchivo) {
 }
 
 document.getElementById('btn-android').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/USUARIO/REPO/main/app-release.apk'; 
+    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuAndroid/Samnu.apk'; 
     descargarDesdeGithub(url, 'SAMNU.apk');
 });
 
 document.getElementById('btn-windows').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/USUARIO/REPO/main/installer.exe'; 
+    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuWindows/Samnu.rar'; 
     descargarDesdeGithub(url, 'SAMNU.exe');
 });
 
