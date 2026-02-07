@@ -1,37 +1,24 @@
-async function descargarDesdeGithub(url, nombreArchivo) {
-    try {
-        const response = await fetch(url);
-        
-        if (!response.ok) throw new Error(`Error en descarga: ${response.statusText}`);
-
-        const blob = await response.blob();
-        const blobUrl = window.URL.createObjectURL(blob);
-        
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = nombreArchivo;
-        document.body.appendChild(a);
-        a.click();
-        
-        window.URL.revokeObjectURL(blobUrl);
-        a.remove();
-    } catch (err) {
-        console.error('Fallo la descarga:', err);
-        alert('Hubo un error al intentar descargar el archivo.');
-    }
+function forzarDescarga(url) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', '');
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 document.getElementById('btn-android').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuAndroid/Samnu.apk'; 
-    descargarDesdeGithub(url, 'SAMNU.apk');
+    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuAndroid/Samnu.apk';
+    forzarDescarga(url);
 });
 
 document.getElementById('btn-windows').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuWindows/Samnu.rar'; 
-    descargarDesdeGithub(url, 'SAMNU.exe');
+    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuWindows/Samnu.rar';
+    forzarDescarga(url);
 });
 
 document.getElementById('btn-manual').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/Manual%20de%20Usuario%20-%20SAMNU%20v1.0.0.pdf'; 
-    descargarDesdeGithub(url, 'Manual_SAMNU.pdf');
+    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/Manual%20de%20Usuario%20-%20SAMNU%20v1.0.0.pdf';
+    forzarDescarga(url);
 });
