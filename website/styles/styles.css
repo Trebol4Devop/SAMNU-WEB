@@ -172,7 +172,7 @@ nav a:hover {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: transparent;
+    background-color: #f8f9fa;
     color: #555;
     padding: 10px 20px;
     border: 1px solid #ccc;
@@ -184,9 +184,9 @@ nav a:hover {
 }
 
 .btn-secondary-download:hover {
-    background-color: #f0f0f0;
     color: #333;
     border-color: #999;
+    transform: scale(1.1);
 }
 
 .hero-image {
