@@ -29,25 +29,21 @@
 
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <span class="badge">Versión 1.0.0</span>
+            <span class="badge">Versión 1.1.2.0</span>
             <h2>Solución Integral en <br><span class="highlight">Métodos Numéricos</span></h2>
             <p>
                 SAMNU es el software definitivo para estudiantes de ingeniería y ciencias. 
                 Más de 30 algoritmos, generación automática de reportes PDF y un parser matemático avanzado.
             </p>
             <div class="download-section">
-                <div class="os-buttons">
-                    <button id="btn-android" class="btn-download">
-                        <ion-icon name="logo-android"></ion-icon> Android
+                <div class="buttons-stores">
+                    <button id="btn-playstore" class="btn-secondary-download">
+                        <ion-icon name="logo-google-playstore"></ion-icon> Play Store
                     </button>
-                    <button id="btn-windows" class="btn-download">
-                        <ion-icon name="logo-windows"></ion-icon> Windows
+                    <button id="btn-microsoftstore" class="btn-secondary-download">
+                        <ion-icon name="logo-windows"></ion-icon> Microsoft Store
                     </button>
-                </div>
-                <div class="manual-container">
-                    <button id="btn-manual" class="btn-secondary-download">
-                        <ion-icon name="book-outline"></ion-icon> Descargar Manual (PDF)
-                    </button>
+                    <p>Botones de descarga desde sitios oficiales</p>
                 </div>
             </div>
         </div>
@@ -92,6 +88,25 @@
                 <p>Visualiza el paso a paso de cada método para entender la lógica detrás del resultado.</p>
             </div>
         </div>
+        <div class="download-cta">
+            <div class="download-cta-copy">
+                <h3>Descarga SAMNU</h3>
+                <p>Descarga directamente sin tiendas oficiales.</p>
+            </div>
+            <div class="os-buttons">
+                <button id="btn-android" class="btn-download">
+                    <ion-icon name="logo-android"></ion-icon> Android
+                </button>
+                <button id="btn-windows" class="btn-download">
+                    <ion-icon name="logo-windows"></ion-icon> Windows
+                </button>
+            </div>
+            <div class="manual-container">
+                <button id="btn-manual" class="btn-secondary-download">
+                    <ion-icon name="book-outline"></ion-icon> Descargar Manual (PDF)
+                </button>
+            </div>
+        </div>
     </section>
 
     <section id="galeria" class="gallery-section">
@@ -99,16 +114,21 @@
             <h2>Interfaz Intuitiva</h2>
             <p>Una experiencia de usuario moderna construida con Flutter.</p>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="./assets/images-proyects/asistente.jpeg" alt="Calculadora SAMNU">
-                <div class="overlay">Módulo de Asistente de tareas</div>
+        <div class="gallery-carousel" aria-label="Carrusel de imágenes de SAMNU">
+            <button class="gallery-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+            <div class="gallery-grid" id="gallery-track">
+                <div class="gallery-item">
+                    <img src="./assets/images-proyects/asistente.jpeg" alt="Calculadora SAMNU">
+                    <div class="gallery-caption">Módulo de Asistente de tareas</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images-proyects/pdfs.jpeg" alt="Generador de PDF">
+                    <div class="gallery-caption">Reportes Automáticos</div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="./assets/images-proyects/pdfs.jpeg" alt="Generador de PDF">
-                <div class="overlay">Reportes Automáticos</div>
-            </div>
+            <button class="gallery-control next" type="button" aria-label="Siguiente imagen">&#10095;</button>
         </div>
+        <div class="gallery-dots" id="gallery-dots" aria-label="Indicadores de galería"></div>
     </section>
 
     <section id="equipo" class="team-section">
@@ -188,6 +208,26 @@
             <p class="copyright">&copy; 2026 - Trebol4Devop</p>
         </div>
     </footer>
+
+    <div id="contact-form-overlay" class="contact-form-overlay">
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <button type="button" class="close-btn" id="close-contact-form">✕</button>
+                <h2>¿Quieres ser parte del grupo cerrado de testers de SAMNU?</h2>
+                <p>Llena este formulario y te enviaremos el acceso a la aplicacion descargadas desde la playstore.</p>
+                <form action="https://formspree.io/f/xbdjevkz" method="POST">
+                    <label for="name">Nombre <span style="color: red;">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                    <label for="email">Email <span style="color: red;">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                    <label for="message">Mensaje <span style="color: red;">*</span></label>
+                    <textarea id="message" name="message" placeholder="Cuéntanos cual es la disponibilidad de uso que puedes dar para las pruebas." required></textarea>
+                    <button type="submit" class="button">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="./server/script.js"></script>
 </body>
 </html>
