@@ -1,4 +1,3 @@
-// Función para forzar descarga
 function forzarDescarga(url) {
     const link = document.createElement('a');
     link.href = url;
@@ -8,6 +7,21 @@ function forzarDescarga(url) {
     link.click();
     document.body.removeChild(link);
 }
+
+document.getElementById('btn-android').addEventListener('click', () => {
+    const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.2/SAMNU-Android.apk';
+    forzarDescarga(url);
+});
+
+document.getElementById('btn-windows').addEventListener('click', () => {
+    const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.2/SAMNU-Windows.zip';
+    forzarDescarga(url);
+});
+
+document.getElementById('btn-manual').addEventListener('click', () => {
+    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/Manual%20de%20Usuario%20-%20SAMNU%20v1.0.0.pdf';
+    forzarDescarga(url);
+});
 
 // Función para redirigir a un enlace externo
 function redirigir(url) {
@@ -196,22 +210,6 @@ function iniciarCarruselGaleria() {
     actualizarCarrusel();
     iniciarAutoplay();
 }
-
-// Event listeners para descargas
-document.getElementById('btn-android').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuAndroid/Samnu.apk';
-    forzarDescarga(url);
-});
-
-document.getElementById('btn-windows').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/SamnuWindows/Samnu.rar';
-    forzarDescarga(url);
-});
-
-document.getElementById('btn-manual').addEventListener('click', () => {
-    const url = 'https://raw.githubusercontent.com/Trebol4Devop/SAMNU/main/Manual%20de%20Usuario%20-%20SAMNU%20v1.0.0.pdf';
-    forzarDescarga(url);
-});
 
 // Event listeners para redirecciones (tiendas)
 document.getElementById('btn-playstore').addEventListener('click', () => {
