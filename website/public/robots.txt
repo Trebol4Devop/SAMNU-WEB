@@ -1,0 +1,10 @@
+# www.robotstxt.org/
+# Permisos profesionales de rastreo e indexación para motores de búsqueda
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /api/
+
+# Mapa del sitio (Sitemap) para indexación acelerada en Google y Bing
+Sitemap: https://samnu.netlify.app/sitemap.xml

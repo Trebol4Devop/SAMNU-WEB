@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "info": "Información",
+    "galeria": "Galería",
+    "equipo": "Equipo"
+  },
+  "hero": {
+    "version": "Versión 1.1.8",
+    "title_prefix": "Solución Integral en",
+    "title_highlight": "Métodos Numéricos",
+    "description": "SAMNU es el software definitivo para estudiantes de ingeniería y ciencias. Más de 30 algoritmos, generación automática de reportes PDF y un parser matemático avanzado.",
+    "playstore": "Play Store",
+    "microsoftstore": "Microsoft Store",
+    "official_sources": "Botones de descarga desde sitios oficiales"
+  },
+  "features": {
+    "section_tag": "// CARACTERÍSTICAS Y VENTAJAS",
+    "header_title": "Potencia tu Aprendizaje",
+    "header_subtitle": "Diseñado para superar las limitaciones del cálculo manual y la falta de herramientas modernas.",
+    "card1_title": "+30 Algoritmos",
+    "card1_desc": "Desde ecuaciones no lineales hasta ecuaciones diferenciales, todo en una sola plataforma.",
+    "card2_title": "Reportes PDF",
+    "card2_desc": "Genera tareas y hojas de trabajo completas con tablas de iteraciones y procedimientos.",
+    "card3_title": "Parser Avanzado",
+    "card3_desc": "Escribe funciones matemáticas de forma natural (ej. \"2x + sin(x)\") con precisión controlada.",
+    "card4_title": "Enfoque Didáctico",
+    "card4_desc": "Visualiza el paso a paso de cada método para entender la lógica detrás del resultado.",
+    "cta_tag": "// DESCARGA DIRECTA",
+    "cta_title": "Descarga SAMNU",
+    "cta_desc": "Descarga directamente sin tiendas oficiales.",
+    "btn_android": "Android",
+    "btn_windows": "Windows",
+    "btn_manual": "Descargar Manual (PDF)"
+  },
+  "gallery": {
+    "section_tag": "// VISTA PREVIA",
+    "header_title": "Interfaz Intuitiva",
+    "header_subtitle": "Una experiencia de usuario moderna construida con Flutter.",
+    "prev": "Imagen anterior",
+    "next": "Siguiente imagen",
+    "slide0_alt": "Calculadora SAMNU",
+    "slide0_caption": "Módulo de Asistente de tareas",
+    "slide1_alt": "Generador de PDF",
+    "slide1_caption": "Reportes Automáticos",
+    "slide2_alt": "Captura de pantalla de SAMNU 1",
+    "slide2_caption": "Selección de Métodos",
+    "slide3_alt": "Captura de pantalla de SAMNU 2",
+    "slide3_caption": "Información Personal",
+    "slide4_alt": "Captura de pantalla de SAMNU 3",
+    "slide4_caption": "Creación de Tareas",
+    "slide5_alt": "Captura de pantalla de SAMNU 4",
+    "slide5_caption": "Acerca de SAMNU",
+    "slide6_alt": "Captura de pantalla de SAMNU 5",
+    "slide6_caption": "Resultados de Tareas",
+    "slide7_alt": "Captura de pantalla de SAMNU 6",
+    "slide7_caption": "Previsualización de Datos introducidos",
+    "slide8_alt": "Captura de pantalla de SAMNU 7",
+    "slide8_caption": "Previsualización de Resultados"
+  },
+  "team": {
+    "section_tag": "// NUESTRO EQUIPO",
+    "header_title": "Desarrollado por",
+    "header_subtitle": "Estudiantes de la Universidad de San Carlos de Guatemala (USAC).",
+    "role_backend": "Backend Developer",
+    "role_frontend": "Frontend Developer",
+    "role_pm": "Project Manager Developer",
+    "tech_stack": "Tecnologías:"
+  },
+  "footer": {
+    "edu_notice": "es un proyecto con fines educativos.",
+    "contact": "Contacto",
+    "copyright": "© 2026 - Trebol4Devop"
+  },
+  "contact": {
+    "title": "¿Quieres ser parte del grupo cerrado de testers de SAMNU?",
+    "desc": "Llena este formulario y te enviaremos el acceso a la aplicación descargada desde la Play Store.",
+    "label_name": "Nombre",
+    "placeholder_name": "Tu nombre",
+    "label_email": "Email",
+    "placeholder_email": "tucorreo@ejemplo.com",
+    "label_message": "Mensaje",
+    "placeholder_message": "Cuéntanos cuál es la disponibilidad de uso que puedes dar para las pruebas.",
+    "btn_send": "Enviar Mensaje"
+  }
+}

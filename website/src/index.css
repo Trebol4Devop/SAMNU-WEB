@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Variante para modo oscuro en Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --color-brand-primary: var(--brand-primary); /* Azul SAMNU - Color de Acento Principal */
+}
+
+@layer base {
+  :root {
+    --brand-primary: #083c64; /* Azul oceánico original de SAMNU para modo claro */
+  }
+
+  .dark {
+    --brand-primary: #3b82f6; /* Azul brillante vibrante para excelente contraste en modo oscuro */
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 font-sans antialiased transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-[#0A0A0A] text-neutral-200;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-neutral-900;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4 {
+    @apply text-white;
+  }
+}
+
+/* Personalización elegante del Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-neutral-200;
+}
+.dark ::-webkit-scrollbar-track {
+  @apply bg-[#0a0a0a];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-400 rounded-full;
+}
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-neutral-800;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+/* Scroll reveal animations (preserved for App.jsx intersection observer) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3D float animation for hero image */
+@keyframes float-3d {
+  0%, 100% {
+    transform: rotateX(20deg) rotateY(-25deg) rotateZ(10deg) scale(1.1) translateY(0);
+  }
+  50% {
+    transform: rotateX(22deg) rotateY(-27deg) rotateZ(11deg) scale(1.1) translateY(-20px);
+  }
+}
+
+.animate-float-3d {
+  animation: float-3d 6s ease-in-out infinite;
+  transform: rotateX(20deg) rotateY(-25deg) rotateZ(10deg) scale(1.1);
+  box-shadow: 
+    inset 0 0 0 4px rgba(255, 255, 255, 0.1),
+    20px 30px 50px rgba(0, 0, 0, 0.3),
+    0 80px 100px -30px rgba(8, 60, 100, 0.25);
+  transition: opacity 0.3s ease-in-out, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+}
+
+.animate-float-3d:hover {
+  transform: rotateX(5deg) rotateY(-5deg) rotateZ(2deg) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    0 30px 60px rgba(59, 130, 246, 0.35);
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  @keyframes float-3d {
+    0%, 100% { transform: rotateX(10deg) rotateY(-10deg) rotateZ(5deg) translateY(0); }
+    50% { transform: rotateX(12deg) rotateY(-12deg) rotateZ(6deg) translateY(-15px); }
+  }
+  .animate-float-3d {
+    transform: rotateX(10deg) rotateY(-10deg) rotateZ(5deg) scale(1);
+  }
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Ambient background drift animation */
+@keyframes drift {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(40px, -60px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+.animate-drift-slow {
+  animation: drift 18s ease-in-out infinite;
+}
+.animate-drift-slower {
+  animation: drift 28s ease-in-out infinite reverse;
+}
+
+/* Shimmer text effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--brand-primary) 0%, #60a5fa 50%, var(--brand-primary) 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
