@@ -29,7 +29,7 @@ Este proyecto web migró de una arquitectura estática tradicional (HTML/CSS/JS 
 
 ```text
 SAMNU-WEB/
-├── AI_CONTEXT.md            # 🎨 Sistema de Diseño Trébol4Devop y Contexto para IA (Tailwind v4, i18n, Dark Mode)
+├── AI_CONTEXT.md            # Sistema de Diseño Trébol4Devop y Contexto para IA (Tailwind v4, i18n, Dark Mode)
 ├── README.md                # Documentación principal del proyecto
 └── website/                 # Directorio principal de la aplicación web
     ├── netlify.toml         # Configuración de compilación y despliegue en Netlify
@@ -97,15 +97,6 @@ Proyecto desarrollado con orgullo por estudiantes de ingeniería de la **USAC**:
 * **Diego Vásquez** - *Frontend Developer* - [GitHub](https://github.com/DiegVas)
 * **Carlos del Cid** - *Project Manager & Developer* - [GitHub](https://github.com/Carlosdelcid05)
 * **Ottoniel Vásquez** - *Backend Developer* - [GitHub](https://github.com/Farot3)
-
----
-
-## 🎨 Contexto para Inteligencia Artificial y Sistema de Diseño
-El archivo **[AI_CONTEXT.md](file:///C:/Users/emanu/OneDrive/Escritorio/Programacion/ProyectosUniversidad/2025/Proyectos/SAMNU-WEB/AI_CONTEXT.md)** (🎨 *Sistema de Diseño, Estética y Arquitectura Visual - Trébol4Devop*) es la guía maestra para Inteligencias Artificiales y desarrolladores del ecosistema **Trébol4Devop**. Contiene:
-* **Sistema de Diseño Trébol4Devop**: Tokens de **Tailwind CSS v4** (`@theme`), uso de fuentes (`Inter` y `Outfit`), paleta de colores con el verde menta característico (`#5CCFAF`), glassmorphism y micro-animaciones.
-* **Modo Claro y Oscuro**: Implementación estándar con persistencia en `localStorage` y detección del sistema.
-* **Internacionalización (i18n)**: Configuración y buenas prácticas para soporte bilingüe en **Inglés (`en`)** y **Español (`es`)** usando `react-i18next`.
-* **Guía de Ejecución Paso a Paso**: Instrucciones estrictas para que cualquier IA futura aplique esta estética como una capa de estilo en nuevos proyectos sin alterar la lógica de negocio ni la estructura original.
 
 ---
 
