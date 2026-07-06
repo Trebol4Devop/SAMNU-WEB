@@ -36,10 +36,10 @@ export default function Hero({ onOpenContactForm }) {
                 <span className="inline-block bg-brand-primary/15 dark:bg-brand-primary/10 text-brand-primary border border-brand-primary/30 font-mono text-xs sm:text-sm px-4 py-1.5 rounded-full uppercase tracking-widest font-semibold mb-6 hover:scale-105 transition-transform duration-300 cursor-default shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                     {t('hero.version')}
                 </span>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-neutral-900 dark:text-white leading-tight mb-6">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-neutral-900 dark:text-white leading-tight mb-6">
                     {t('hero.title_prefix')} <br />
                     <span className="text-brand-primary animate-shimmer inline-block">{t('hero.title_highlight')}</span>
-                </h2>
+                </h1>
                 <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto lg:mx-0 mb-8 font-sans leading-relaxed">
                     {t('hero.description')}
                 </p>

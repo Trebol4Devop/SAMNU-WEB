@@ -33,7 +33,7 @@ export default function Navbar() {
         <header id="header" className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 sm:px-12 py-4 bg-neutral-100/80 dark:bg-[#171717]/80 backdrop-blur-md border-b border-black/5 dark:border-white/5 transition-colors duration-300">
             <div className="flex items-center gap-3 group cursor-pointer">
                 <img src="./assets/images-proyects/logos/Logo SANMU - sin fondo sin nombre.png" alt="Logo SAMNU" className="h-10 sm:h-11 w-auto group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
-                <h1 className="text-xl sm:text-2xl font-display font-bold tracking-tight text-neutral-900 dark:text-white group-hover:text-brand-primary transition-colors">SAMNU</h1>
+                <span className="text-xl sm:text-2xl font-display font-bold tracking-tight text-neutral-900 dark:text-white group-hover:text-brand-primary transition-colors">SAMNU</span>
             </div>
             <div className="flex items-center gap-4 sm:gap-8">
                 <nav className="hidden md:block">
