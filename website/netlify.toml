@@ -1,12 +1,12 @@
 [build]
-  publish = "."
-  command = "echo 'No build step required'"
+  publish = "dist"
+  command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 [dev]
-  publish = "."
+  publish = "dist"
   port = 8888
   target = "static"
 
