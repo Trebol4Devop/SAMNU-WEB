@@ -15,12 +15,12 @@ export default function Features() {
     };
 
     const handleAndroidDownload = () => {
-        const url = 'https://release-assets.githubusercontent.com/github-production-release-asset/1150943887/3a7e72b8-92b6-492b-bba0-2457e9c6d529?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-07-06T23%3A51%3A37Z&rscd=attachment%3B+filename%3DSAMNU-Android.-1.1.8.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-07-06T22%3A50%3A45Z&ske=2026-07-06T23%3A51%3A37Z&sks=b&skv=2018-11-09&sig=6c%2FW6Pm46Ed%2B2UfOt8o3wovTLcY54%2FJI8gCzHA5OoNU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4MzM4MDc0MiwibmJmIjoxNzgzMzc4OTQyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.jLzmxb70cGVru8xBh6jy1lIufzd0-dbqYHoEupGCaDs&response-content-disposition=attachment%3B%20filename%3DSAMNU-Android.-1.1.8.apk&response-content-type=application%2Fvnd.android.package-archive';
+        const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.8/SAMNU-Android.-1.1.8.apk';
         forceDownload(url);
     };
 
     const handleWindowsDownload = () => {
-        const url = 'https://release-assets.githubusercontent.com/github-production-release-asset/1150943887/c798850b-10f0-49cb-a1de-bf294f17c61d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-07-06T23%3A49%3A15Z&rscd=attachment%3B+filename%3DSAMNU-Windows-1.1.8.exe&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-07-06T22%3A48%3A48Z&ske=2026-07-06T23%3A49%3A15Z&sks=b&skv=2018-11-09&sig=X%2FldI1ueN43S6IbLFQH7iGGG6K6jC5%2FQe2gRf1ZdXGE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4MzM4MDgwNSwibmJmIjoxNzgzMzc5MDA1LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5gTWOenLzR0STbT5ah-SVFIFr5JwG_gkZ6ODrRQp7oI&response-content-disposition=attachment%3B%20filename%3DSAMNU-Windows-1.1.8.exe&response-content-type=application%2Foctet-stream';
+        const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.8/SAMNU-Windows-1.1.8.exe';
         forceDownload(url);
     };
 
