@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Gallery from './components/Gallery';
 import Team from './components/Team';
 import Footer from './components/Footer';
-import ContactModal from './components/ContactModal';
 import BackgroundEffects from './components/BackgroundEffects';
 
 export default function App() {
-    const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
     useEffect(() => {
         const revealElements = [
@@ -69,15 +67,11 @@ export default function App() {
         <div className="relative min-h-screen overflow-x-hidden">
             <BackgroundEffects />
             <Navbar />
-            <Hero onOpenContactForm={() => setIsContactFormOpen(true)} />
+            <Hero />
             <Features />
             <Gallery />
             <Team />
             <Footer />
-            <ContactModal 
-                isOpen={isContactFormOpen} 
-                onClose={() => setIsContactFormOpen(false)} 
-            />
         </div>
     );
 }
