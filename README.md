@@ -6,7 +6,7 @@
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 
-Repositorio oficial para la web y portal de descargas de **SAMNU (Solución en Métodos Numéricos)**, un software científico y educativo moderno desarrollado por estudiantes de ingeniería de la **Universidad de San Carlos de Guatemala (USAC)** bajo el equipo **Trebol4Devop**.
+Repositorio oficial para la web y portal de descargas de **SAMNU**, un software científico y educativo moderno desarrollado por estudiantes de ingeniería de la **Universidad de San Carlos de Guatemala (USAC)** bajo el equipo **Trebol4Devop**.
 
 ---
 
