@@ -6,7 +6,9 @@
     "equipo": "Equipo"
   },
   "hero": {
-    "version": "Versión 1.1.8",
+    "version": "Versión 1.1.9",
+    "version_badge": "v1.1.9",
+    "version_tag": "Nueva versión disponible",
     "title_prefix": "Solución Integral en",
     "title_highlight": "Métodos Numéricos",
     "description": "SAMNU es el software definitivo para estudiantes de ingeniería y ciencias. Más de 30 algoritmos, generación automática de reportes PDF y un parser matemático avanzado.",
@@ -69,6 +71,7 @@
   },
   "footer": {
     "edu_notice": "es un proyecto con fines educativos.",
+    "support": "Apoya el proyecto:",
     "contact": "Contacto",
     "copyright": "© 2026 - Trebol4Devop"
   },

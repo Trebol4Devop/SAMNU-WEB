@@ -11,6 +11,25 @@ export default function Footer() {
                 <p className="text-sm text-neutral-300 font-sans">
                     <strong className="text-white font-semibold">SAMNU</strong> {t('footer.edu_notice')}
                 </p>
+                <div className="flex flex-wrap items-center justify-center gap-3.5 my-1">
+                    <a 
+                        href="https://buymeacoffee.com/trebol4devop" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FFDD00] hover:bg-[#FFDD00]/90 text-neutral-950 font-bold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm cursor-pointer"
+                    >
+                        <ion-icon name="cafe-outline" style={{ fontSize: '1.2rem' }}></ion-icon> Buy Me a Coffee
+                    </a>
+                    <a 
+                        href="https://www.paypal.com/paypalme/TrebolDevop" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0070BA] hover:bg-[#0070BA]/90 text-white font-bold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm cursor-pointer"
+                    >
+                        <ion-icon name="logo-paypal" style={{ fontSize: '1.2rem' }}></ion-icon> PayPal
+                    </a>
+                </div>
+
                 <div className="socials flex items-center gap-6 text-sm font-medium">
                     <a 
                         href="https://github.com/trebol4devop" 
@@ -19,6 +38,14 @@ export default function Footer() {
                         className="inline-flex items-center gap-2 hover:text-brand-primary transition-colors text-white"
                     >
                         <ion-icon name="logo-github" style={{ fontSize: '1.25rem' }}></ion-icon> GitHub
+                    </a>
+                    <a 
+                        href="https://www.linkedin.com/company/trebol4devop" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 hover:text-brand-primary transition-colors text-white"
+                    >
+                        <ion-icon name="logo-linkedin" style={{ fontSize: '1.25rem' }}></ion-icon> LinkedIn
                     </a>
                     <a 
                         href="mailto:trebol4devop@proton.me"

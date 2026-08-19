@@ -104,5 +104,6 @@ Proyecto desarrollado con orgullo por estudiantes de ingeniería de la **USAC**:
 Para consultas, reportes de errores o colaboración científica:
 * **Correo**: [trebol4devop@proton.me](mailto:trebol4devop@proton.me)
 * **GitHub**: [Trebol4Devop](https://github.com/trebol4devop)
+* **LinkedIn**: [Trebol4Devop](https://www.linkedin.com/company/trebol4devop)
 
 &copy; 2026 - Trebol4Devop. Todos los derechos reservados.

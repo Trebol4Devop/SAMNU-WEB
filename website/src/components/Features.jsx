@@ -15,12 +15,12 @@ export default function Features() {
     };
 
     const handleAndroidDownload = () => {
-        const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.8/SAMNU-Android.-1.1.8.apk';
+        const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.9/SAMNU-Android.-1.1.9.apk';
         forceDownload(url);
     };
 
     const handleWindowsDownload = () => {
-        const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.8/SAMNU-Windows-1.1.8.exe';
+        const url = 'https://github.com/Trebol4Devop/SAMNU/releases/download/v1.1.9/SAMNU-Windows-1.1.9.exe';
         forceDownload(url);
     };
 

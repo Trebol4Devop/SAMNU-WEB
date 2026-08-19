@@ -70,7 +70,7 @@ All React components reside in `website/src/components/`:
 | **`Features.jsx`** | Displays 4 key features (+30 Algoritmos, Reportes PDF, Parser Avanzado, Enfoque Didáctico). Houses the download CTA section that triggers direct downloads of Android APK, Windows EXE, and Manual PDF via hidden DOM anchors (`forceDownload`). |
 | **`Gallery.jsx`** | Interactive carousel showcasing 9 app screenshots. Features autoplay (4500ms interval), previous/next arrow buttons (`&#10094;`/`&#10095;`), and clickable indicator dots. |
 | **`Team.jsx`** | Developer profiles for Trebol4Devop (José Monzón, Diego Vásquez, Carlos del Cid, Ottoniel Vásquez) with GitHub avatars and links, plus tech stack summary (Dart, Flutter, LaTeX). |
-| **`Footer.jsx`** | Trebol Asociados logo, educational disclaimer, GitHub link, and email contact (`trebol4devop@proton.me`). |
+| **`Footer.jsx`** | Trebol Asociados logo, educational disclaimer, GitHub link, LinkedIn link, and email contact (`trebol4devop@proton.me`). |
 | **`ContactModal.jsx`** | Controlled modal overlay (`isOpen` / `onClose`). Contains a form submitting POST requests directly to Formspree (`https://formspree.io/f/xbdjevkz`) for closed beta tester recruitment. |
 | **`App.jsx`** | Root integrator. Manages `isContactFormOpen` state. On mount, attaches `IntersectionObserver` instances to trigger scroll-reveal animations (`.reveal-on-scroll` -> `.is-visible`) and section active tracking (`.is-active`). |
 

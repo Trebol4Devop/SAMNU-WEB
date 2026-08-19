@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function Hero({ onOpenContactForm }) {
+export default function Hero() {
     const { t } = useTranslation();
     const images = [
         './assets/images-proyects/hero/inicioSamnu.png',
@@ -23,6 +23,10 @@ export default function Hero({ onOpenContactForm }) {
         return () => clearInterval(interval);
     }, [images.length]);
 
+    const handlePlayStore = () => {
+        window.open('https://play.google.com/store/apps/details?id=com.samnu.app&pcampaignid=web_share', '_blank');
+    };
+
     const handleMicrosoftStore = () => {
         window.open('https://apps.microsoft.com/detail/9NWF3SF61RHS?hl=en-us&gl=GT&ocid=pdpshare', '_blank');
     };
@@ -31,11 +35,20 @@ export default function Hero({ onOpenContactForm }) {
         <section id="inicio" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 lg:px-24 pt-32 pb-20 overflow-hidden bg-neutral-50 dark:bg-[#0A0A0A] transition-colors duration-300">
             {/* Glow / Blur de fondo */}
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[600px] h-[500px] sm:h-[600px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none" />
-
             <div className="flex-1 z-10 lg:pr-12 text-center lg:text-left mb-12 lg:mb-0">
-                <span className="inline-block bg-brand-primary/15 dark:bg-brand-primary/10 text-brand-primary border border-brand-primary/30 font-mono text-xs sm:text-sm px-4 py-1.5 rounded-full uppercase tracking-widest font-semibold mb-6 hover:scale-105 transition-transform duration-300 cursor-default shadow-[0_0_15px_rgba(59,130,246,0.2)]">
-                    {t('hero.version')}
-                </span>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 mb-6 text-xs sm:text-sm font-sans shadow-xs transition-all duration-300">
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                    </span>
+                    <span className="font-semibold text-neutral-900 dark:text-white">
+                        {t('hero.version_badge')}
+                    </span>
+                    <span className="text-neutral-300 dark:text-neutral-700">|</span>
+                    <span className="text-neutral-600 dark:text-neutral-400 font-medium">
+                        {t('hero.version_tag')}
+                    </span>
+                </div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-neutral-900 dark:text-white leading-tight mb-6">
                     {t('hero.title_prefix')} <br />
                     <span className="text-brand-primary animate-shimmer inline-block">{t('hero.title_highlight')}</span>
@@ -48,7 +61,7 @@ export default function Hero({ onOpenContactForm }) {
                         <button 
                             id="btn-playstore" 
                             className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold px-6 py-3.5 rounded-lg hover:bg-brand-primary/80 hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] cursor-pointer"
-                            onClick={onOpenContactForm}
+                            onClick={handlePlayStore}
                         >
                             <ion-icon name="logo-google-playstore" style={{ fontSize: '1.25rem' }}></ion-icon> 
                             {t('hero.playstore')}
