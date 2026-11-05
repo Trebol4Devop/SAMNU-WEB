@@ -66,9 +66,15 @@
   },
   "footer": {
     "edu_notice": "is scientific and educational software proudly developed at USAC.",
-    "support": "Support ongoing development:",
+    "support_tag": "Project Patronage",
+    "support_title": "Has SAMNU helped you in your coursework or projects?",
+    "support_desc": "SAMNU is open-source, ad-free, and accessible to everyone. Your voluntary donation helps sustain infrastructure and accelerate new numerical solvers.",
+    "community_title": "Official Channels & Community",
+    "discord": "Discord",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
     "contact": "Contact",
     "copyright": "© 2026 - Trebol4Devop. All rights reserved.",
-    "version_info": "San Carlos University of Guatemala"
+    "version_info": "San Carlos University of Guatemala • Faculty of Engineering"
   }
 }

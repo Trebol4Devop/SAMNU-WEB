@@ -52,15 +52,16 @@ function TeamTiltCard({ member, roleText }) {
                     }}
                 />
 
-                {/* Floating Avatar with 3D Depth */}
+                {/* Organic Circular Avatar (Seamless, no square-in-container artifacts) */}
                 <div 
                     style={{ transform: 'translateZ(30px)' }}
-                    className="w-24 h-24 overflow-hidden mb-5 shadow-lg transition-transform duration-300"
+                    className="w-24 h-24 rounded-full overflow-hidden mb-5 p-0.5 ring-2 ring-neutral-300/80 dark:ring-neutral-700/80 shadow-md transition-transform duration-500 ease-out group-hover:scale-105"
                 >
                     <img 
                         src={member.avatar} 
                         alt={member.name} 
-                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" 
+                        className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-400 ease-out" 
+                        loading="lazy"
                     />
                 </div>
 
@@ -74,17 +75,17 @@ function TeamTiltCard({ member, roleText }) {
                     </span>
                 </div>
 
-                {/* Action Link with 3D Depth */}
+                {/* Action Link with 3D Depth & Fluid Microinteraction */}
                 <div className="mt-auto" style={{ transform: 'translateZ(25px)' }}>
                     <a 
                         href={member.url} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="inline-flex min-h-9 items-center gap-2 px-4 py-2 bg-neutral-200/80 hover:bg-neutral-900 hover:text-white dark:bg-neutral-800 dark:hover:bg-white dark:hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-medium uppercase tracking-wider transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer"
+                        className="btn-fluid group inline-flex min-h-9 items-center gap-2 px-4 py-2 bg-neutral-200/80 hover:bg-neutral-900 hover:text-white dark:bg-neutral-800 dark:hover:bg-white dark:hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-medium uppercase tracking-wider shadow-xs hover:shadow-md cursor-pointer"
                     >
                         <ion-icon name="logo-github" style={{ fontSize: '1.05rem' }}></ion-icon>
                         <span>@{member.username}</span>
-                        <span className="text-xs">↗</span>
+                        <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                     </a>
                 </div>
             </div>

@@ -127,11 +127,11 @@ export default function Features() {
                         </p>
                     </div>
 
-                    {/* Primary OS Direct Download Buttons (No borders, solid high-contrast) */}
+                    {/* Primary OS Direct Download Buttons (Fluid kinetic micro-interactions) */}
                     <div className="flex flex-wrap items-center justify-center gap-4 mb-7 z-10 relative w-full">
                         <button 
                             id="btn-android" 
-                            className="inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all duration-300 shadow-md shadow-black/10 cursor-pointer min-w-[160px]" 
+                            className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 shadow-md shadow-black/10 dark:shadow-white/5 hover:shadow-xl cursor-pointer min-w-[160px]" 
                             onClick={handleAndroidDownload}
                         >
                             <ion-icon name="logo-android" style={{ fontSize: '1.25rem' }}></ion-icon> 
@@ -140,7 +140,7 @@ export default function Features() {
 
                         <button 
                             id="btn-windows" 
-                            className="inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all duration-300 shadow-md shadow-black/10 cursor-pointer min-w-[160px]" 
+                            className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 shadow-md shadow-black/10 dark:shadow-white/5 hover:shadow-xl cursor-pointer min-w-[160px]" 
                             onClick={handleWindowsDownload}
                         >
                             <ion-icon name="logo-windows" style={{ fontSize: '1.25rem' }}></ion-icon> 
@@ -149,7 +149,7 @@ export default function Features() {
 
                         <button 
                             id="btn-linux" 
-                            className="inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all duration-300 shadow-md shadow-black/10 cursor-pointer min-w-[160px]" 
+                            className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 shadow-md shadow-black/10 dark:shadow-white/5 hover:shadow-xl cursor-pointer min-w-[160px]" 
                             onClick={handleLinuxDownload}
                         >
                             <ion-icon name="logo-tux" style={{ fontSize: '1.25rem' }}></ion-icon> 
@@ -157,11 +157,11 @@ export default function Features() {
                         </button>
                     </div>
 
-                    {/* Secondary Actions (Borderless, soft background) */}
+                    {/* Secondary Actions (Fluid, soft background) */}
                     <div className="flex flex-wrap items-center justify-center gap-3.5 z-10 relative">
                         <button 
                             id="btn-manual" 
-                            className="inline-flex min-h-10 items-center gap-2 bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-neutral-800 dark:text-neutral-200 transition-colors cursor-pointer" 
+                            className="btn-fluid inline-flex min-h-10 items-center gap-2 bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-750 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-neutral-800 dark:text-neutral-200 shadow-xs hover:shadow-md cursor-pointer" 
                             onClick={handleManualDownload}
                         >
                             <ion-icon name="book-outline" style={{ fontSize: '1.1rem' }}></ion-icon> 
@@ -170,12 +170,12 @@ export default function Features() {
 
                         <button 
                             id="btn-github-release" 
-                            className="inline-flex min-h-10 items-center gap-2 bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-neutral-800 dark:text-neutral-200 transition-colors cursor-pointer" 
+                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-750 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-neutral-800 dark:text-neutral-200 shadow-xs hover:shadow-md cursor-pointer" 
                             onClick={handleGitHubReleases}
                         >
                             <ion-icon name="logo-github" style={{ fontSize: '1.1rem' }}></ion-icon> 
                             <span>{t('features.btn_github_release')}</span>
-                            <span className="text-xs">↗</span>
+                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                         </button>
                     </div>
 

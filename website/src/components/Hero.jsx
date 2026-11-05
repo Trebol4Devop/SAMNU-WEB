@@ -56,35 +56,35 @@ export default function Hero() {
                         {t('hero.description')}
                     </p>
 
-                    {/* Action Buttons (Borderless, fluid, high-contrast) */}
+                    {/* Action Buttons (Fluid kinetic micro-interactions) */}
                     <div className="flex flex-col items-center lg:items-start gap-4">
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 w-full">
                             <button 
                                 id="btn-playstore" 
-                                className="inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all duration-300 shadow-lg shadow-black/10 cursor-pointer"
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 shadow-lg shadow-black/15 dark:shadow-white/5 hover:shadow-xl cursor-pointer"
                                 onClick={handlePlayStore}
                             >
                                 <ion-icon name="logo-google-playstore" style={{ fontSize: '1.2rem' }}></ion-icon> 
                                 <span>{t('hero.playstore')}</span>
-                                <span className="text-xs">↗</span>
+                                <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                             </button>
 
                             <button 
                                 id="btn-microsoftstore" 
-                                className="inline-flex min-h-12 items-center justify-center gap-2.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 px-7 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-900 dark:text-white transition-all duration-300 cursor-pointer"
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 bg-neutral-100 hover:bg-neutral-200/90 dark:bg-neutral-900 dark:hover:bg-neutral-850 px-7 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-900 dark:text-white shadow-sm hover:shadow-md cursor-pointer"
                                 onClick={handleMicrosoftStore}
                             >
                                 <ion-icon name="logo-windows" style={{ fontSize: '1.2rem' }}></ion-icon> 
                                 <span>{t('hero.microsoftstore')}</span>
-                                <span className="text-xs">↗</span>
+                                <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                             </button>
 
                             <a 
                                 href="#descargas" 
-                                className="inline-flex min-h-12 items-center justify-center gap-1.5 px-5 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
+                                className="btn-fluid inline-flex min-h-12 items-center justify-center gap-1.5 px-5 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
                             >
                                 <span>{t('hero.btn_direct_downloads')}</span>
-                                <span className="text-xs">↓</span>
+                                <span className="text-xs transition-transform duration-300 ease-out hover:translate-y-0.5">↓</span>
                             </a>
                         </div>
                         <p className="text-xs text-neutral-400 dark:text-neutral-500 font-sans">
@@ -94,28 +94,31 @@ export default function Hero() {
 
                 </div>
 
-                {/* Right Column: 3D High-Tech Hero Display Image (Floating) */}
+                {/* Right Column: 3D High-Tech Hero Display Image (Decoupled Fluid Levitation & Tilt) */}
                 <div className="flex-1 w-full flex justify-center items-center relative py-8 lg:py-0">
-                    <div 
-                        className="relative z-10 w-full max-w-[540px] aspect-[16/10] flex items-center justify-center cursor-pointer select-none"
-                        onClick={() => {
-                            setOpacity(0.4);
-                            setTimeout(() => {
-                                setCurrentIndex((prev) => (prev + 1) % images.length);
-                                setOpacity(1);
-                            }, 200);
-                        }}
-                        title="Clic para alternar tema de la captura"
-                    >
-                        <img 
-                            src={images[currentIndex]} 
-                            alt="SAMNU v2.3.1 Software Interface" 
-                            className="w-full h-auto max-h-[460px] object-contain animate-float-3d"
-                            style={{ 
-                                opacity: opacity,
-                                transition: 'opacity 0.3s ease-in-out'
+                    <div className="hero-float-wrapper w-full max-w-[540px] flex items-center justify-center">
+                        <div 
+                            className="hero-mockup-interactive relative z-10 w-full aspect-[16/10] flex items-center justify-center cursor-pointer select-none"
+                            onClick={() => {
+                                setOpacity(0.35);
+                                setTimeout(() => {
+                                    setCurrentIndex((prev) => (prev + 1) % images.length);
+                                    setOpacity(1);
+                                }, 220);
                             }}
-                        />
+                            title="Clic para alternar tema de la captura"
+                        >
+                            <img 
+                                src={images[currentIndex]} 
+                                alt="SAMNU v2.3.1 Software Interface" 
+                                className="w-full h-auto max-h-[460px] object-contain select-none pointer-events-none"
+                                style={{ 
+                                    opacity: opacity,
+                                    transition: 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1)'
+                                }}
+                                draggable={false}
+                            />
+                        </div>
                     </div>
                 </div>
 
