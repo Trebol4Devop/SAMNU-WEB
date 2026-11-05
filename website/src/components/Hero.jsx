@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 export default function Hero() {
     const { t } = useTranslation();
     const images = [
-        './assets/images-proyects/hero/inicioSamnu.png',
-        './assets/images-proyects/hero/inicioSamnu1.1.2.0.png'
+        './assets/images-proyects/hero/hero_v231_light.png',
+        './assets/images-proyects/hero/hero_v231_dark.png'
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,62 +32,106 @@ export default function Hero() {
     };
 
     return (
-        <section id="inicio" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 lg:px-24 pt-32 pb-20 overflow-hidden bg-neutral-50 dark:bg-[#0A0A0A] transition-colors duration-300">
-            {/* Glow / Blur de fondo */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[600px] h-[500px] sm:h-[600px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none" />
-            <div className="flex-1 z-10 lg:pr-12 text-center lg:text-left mb-12 lg:mb-0">
-                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 mb-6 text-xs sm:text-sm font-sans shadow-xs transition-all duration-300">
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
-                    </span>
-                    <span className="font-semibold text-neutral-900 dark:text-white">
-                        {t('hero.version_badge')}
-                    </span>
-                    <span className="text-neutral-300 dark:text-neutral-700">|</span>
-                    <span className="text-neutral-600 dark:text-neutral-400 font-medium">
-                        {t('hero.version_tag')}
-                    </span>
-                </div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-neutral-900 dark:text-white leading-tight mb-6">
-                    {t('hero.title_prefix')} <br />
-                    <span className="text-brand-primary animate-shimmer inline-block">{t('hero.title_highlight')}</span>
-                </h1>
-                <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto lg:mx-0 mb-8 font-sans leading-relaxed">
-                    {t('hero.description')}
-                </p>
-                <div className="flex flex-col items-center lg:items-start gap-4">
-                    <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
-                        <button 
-                            id="btn-playstore" 
-                            className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold px-6 py-3.5 rounded-lg hover:bg-brand-primary/80 hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] cursor-pointer"
-                            onClick={handlePlayStore}
-                        >
-                            <ion-icon name="logo-google-playstore" style={{ fontSize: '1.25rem' }}></ion-icon> 
-                            {t('hero.playstore')}
-                        </button>
-                        <button 
-                            id="btn-microsoftstore" 
-                            className="inline-flex items-center justify-center gap-2 border border-black/10 dark:border-white/10 px-6 py-3.5 rounded-lg font-bold hover:bg-black/5 dark:hover:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-300 text-neutral-900 dark:text-white text-sm sm:text-base cursor-pointer bg-neutral-100 dark:bg-[#171717] hover:border-brand-primary/30"
-                            onClick={handleMicrosoftStore}
-                        >
-                            <ion-icon name="logo-windows" style={{ fontSize: '1.25rem' }}></ion-icon> 
-                            {t('hero.microsoftstore')}
-                        </button>
+        <section id="inicio" className="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:px-24 pt-32 pb-20 overflow-hidden bg-white dark:bg-[#0A0A0A] transition-colors duration-300">
+            <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+                
+                {/* Left Column: Information & Actions */}
+                <div className="flex-1 z-10 text-center lg:text-left">
+                    
+                    {/* Prominent Version Title (Free-flowing, no container) */}
+                    <div className="text-lg sm:text-2xl font-mono uppercase tracking-[0.2em] text-brand-primary font-semibold mb-3">
+                        {t('hero.version_headline')}
                     </div>
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400 font-sans mt-1">
-                        {t('hero.official_sources')}
-                    </p>
-                </div>
-            </div>
 
-            <div className="flex-1 flex justify-center relative z-10 w-full max-w-xl lg:max-w-none perspective-2000">
-                <img 
-                    src={images[currentIndex]} 
-                    alt="Interfaz de SAMNU" 
-                    className="max-w-[85%] sm:max-w-[75%] lg:max-w-[85%] h-auto rounded-2xl animate-float-3d border border-black/5 dark:border-white/10"
-                    style={{ opacity: opacity }}
-                />
+                    {/* Main Title */}
+                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-neutral-900 dark:text-white leading-[1.08] mb-6 tracking-tight">
+                        {t('hero.title_prefix')}{' '}
+                        <span className="text-brand-primary animate-shimmer inline-block">
+                            {t('hero.title_highlight')}
+                        </span>
+                    </h1>
+
+                    {/* Description */}
+                    <p className="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-sans">
+                        {t('hero.description')}
+                    </p>
+
+                    {/* Action Buttons (Fluid kinetic micro-interactions) */}
+                    <div className="flex flex-col items-center lg:items-start gap-4">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 w-full">
+                            <button 
+                                id="btn-playstore" 
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 shadow-lg shadow-black/15 dark:shadow-white/5 hover:shadow-xl rounded-xl cursor-pointer"
+                                onClick={handlePlayStore}
+                            >
+                                <ion-icon name="logo-google-playstore" style={{ fontSize: '1.2rem' }}></ion-icon> 
+                                <span>{t('hero.playstore')}</span>
+                                <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            </button>
+
+                            <button 
+                                id="btn-microsoftstore" 
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 bg-neutral-100 hover:bg-neutral-200/90 dark:bg-neutral-900 dark:hover:bg-neutral-850 px-7 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-900 dark:text-white shadow-sm hover:shadow-md rounded-xl cursor-pointer"
+                                onClick={handleMicrosoftStore}
+                            >
+                                <ion-icon name="logo-windows" style={{ fontSize: '1.2rem' }}></ion-icon> 
+                                <span>{t('hero.microsoftstore')}</span>
+                                <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            </button>
+
+                            <a 
+                                id="btn-samnu-web"
+                                href="#web" 
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 bg-neutral-100 hover:bg-neutral-200/90 dark:bg-neutral-900 dark:hover:bg-neutral-850 px-7 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-900 dark:text-white shadow-sm hover:shadow-md rounded-xl cursor-pointer"
+                            >
+                                <ion-icon name="globe-outline" style={{ fontSize: '1.2rem' }}></ion-icon> 
+                                <span>{t('hero.samnu_web')}</span>
+                                <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↓</span>
+                            </a>
+
+                            <a 
+                                href="#descargas" 
+                                className="btn-fluid inline-flex min-h-12 items-center justify-center gap-1.5 px-5 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white rounded-xl"
+                            >
+                                <span>{t('hero.btn_direct_downloads')}</span>
+                                <span className="text-xs transition-transform duration-500 ease-out hover:translate-y-0.5">↓</span>
+                            </a>
+                        </div>
+                        <p className="text-xs text-neutral-400 dark:text-neutral-500 font-sans">
+                            {t('hero.official_sources')}
+                        </p>
+                    </div>
+
+                </div>
+
+                {/* Right Column: 3D High-Tech Hero Display Image (Decoupled Fluid Levitation & Tilt) */}
+                <div className="flex-1 w-full flex justify-center items-center relative py-8 lg:py-0">
+                    <div className="hero-float-wrapper w-full max-w-[540px] flex items-center justify-center">
+                        <div 
+                            className="hero-mockup-interactive relative z-10 w-full aspect-[16/10] flex items-center justify-center cursor-pointer select-none"
+                            onClick={() => {
+                                setOpacity(0.35);
+                                setTimeout(() => {
+                                    setCurrentIndex((prev) => (prev + 1) % images.length);
+                                    setOpacity(1);
+                                }, 220);
+                            }}
+                            title="Clic para alternar tema de la captura"
+                        >
+                            <img 
+                                src={images[currentIndex]} 
+                                alt="SAMNU v2.3.1 Software Interface" 
+                                className="w-full h-auto max-h-[460px] object-contain select-none pointer-events-none"
+                                style={{ 
+                                    opacity: opacity,
+                                    transition: 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1)'
+                                }}
+                                draggable={false}
+                            />
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     );

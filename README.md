@@ -14,10 +14,11 @@ Repositorio oficial para la web y portal de descargas de **SAMNU**, un software 
 
 **SAMNU** es una herramienta diseñada para superar las limitaciones del cálculo manual en métodos numéricos y la falta de software moderno con enfoque didáctico. La aplicación (desarrollada en Dart/Flutter) ofrece:
 
-* **+30 Algoritmos Numéricos**: Solución de ecuaciones no lineales, sistemas de ecuaciones lineales, interpolación, regresión, diferenciación e integración numérica, y ecuaciones diferenciales ordinarias.
-* **Generación Automática de Reportes PDF**: Exportación de tareas y procedimientos completos con tablas de iteraciones detalladas en formato profesional (usando LaTeX/PDF).
-* **Parser Matemático Avanzado**: Entrada natural de funciones matemáticas (ej. `2x + sin(x) * exp(-x)`) con evaluación precisa y controlada.
-* **Enfoque Didáctico e Intuitivo**: Visualización paso a paso para que estudiantes y profesores comprendan la lógica detrás de cada resultado.
+* **+41 Algoritmos Numéricos & Simbólicos**: Solución de ecuaciones no lineales, sistemas lineales, interpolación, regresión, diferenciación, integración, análisis de curvas, sumas de Riemann, integrales impropias, series y ecuaciones diferenciales ordinarias (EDOs).
+* **Generación Automática de Reportes KaTeX 2.0 (PDF)**: Exportación de tareas y procedimientos completos con tablas de iteraciones detalladas, tipografía matemática KaTeX vectorial sin advertencias de fuentes ni desbordamientos.
+* **Parser Matemático Avanzado con LaTeX en Vivo**: Entrada natural de funciones matemáticas (ej. `2x + sin(x) * exp(-x)`) con evaluación precisa y vista previa en tiempo real.
+* **Precisión Decimal y Modo Didáctico**: Configuración flexible de 0 a 15 decimales y visualización paso a paso para que estudiantes y profesores comprendan la lógica matemática detrás de cada resultado.
+* **Soporte Multiplataforma**: Instaladores oficiales para Android (APK / Google Play), Windows (EXE / Microsoft Store) y Linux (AppImage x86_64).
 
 ---
 

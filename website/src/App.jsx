@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import SamnuWeb from './components/SamnuWeb';
 import Gallery from './components/Gallery';
 import Team from './components/Team';
 import Footer from './components/Footer';
@@ -10,15 +11,19 @@ import BackgroundEffects from './components/BackgroundEffects';
 export default function App() {
 
     useEffect(() => {
-        const revealElements = [
-            ...document.querySelectorAll('.section-header'),
-            ...document.querySelectorAll('.feature-card'),
-            ...document.querySelectorAll('.download-cta'),
-            ...document.querySelectorAll('.gallery-item'),
-            ...document.querySelectorAll('.team-card'),
-            ...document.querySelectorAll('.tech-stack'),
-            ...document.querySelectorAll('footer .footer-content')
-        ];
+        const revealElements = Array.from(
+            new Set([
+                ...document.querySelectorAll('.reveal-on-scroll'),
+                ...document.querySelectorAll('.section-header'),
+                ...document.querySelectorAll('.feature-card'),
+                ...document.querySelectorAll('.download-cta'),
+                ...document.querySelectorAll('.gallery-item'),
+                ...document.querySelectorAll('.team-card'),
+                ...document.querySelectorAll('.tech-stack'),
+                ...document.querySelectorAll('.footer-content'),
+                ...document.querySelectorAll('footer .footer-content')
+            ])
+        );
 
         revealElements.forEach((el, index) => {
             el.classList.add('reveal-on-scroll');
@@ -35,8 +40,8 @@ export default function App() {
                 }
             });
         }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -40px 0px'
+            threshold: 0.08,
+            rootMargin: '0px 0px -10px 0px'
         });
 
         revealElements.forEach((el) => revealObserver.observe(el));
@@ -69,6 +74,7 @@ export default function App() {
             <Navbar />
             <Hero />
             <Features />
+            <SamnuWeb />
             <Gallery />
             <Team />
             <Footer />
