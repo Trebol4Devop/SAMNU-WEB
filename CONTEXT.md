@@ -6,11 +6,13 @@
 * **Domain**: Scientific and educational software for numerical methods, engineering calculations, and mathematical analysis.
 * **Target Audience**: Engineering and science students, professors, and researchers at **Universidad de San Carlos de Guatemala (USAC)** and general technical institutions.
 * **Core Software Capabilities**: 
-  * +30 numerical algorithms (root finding, linear systems, numerical calculus, ODEs).
-  * Automated LaTeX/PDF report generation with step-by-step iteration tables.
-  * Natural syntax mathematical expression parser.
+  * +41 numerical and symbolic algorithms (root finding, linear systems, Stewart Calculus I & II, 1st-order ODEs).
+  * Automated KaTeX 2.0 vector PDF report generation with step-by-step iteration tables and dynamic pagination.
+  * Natural syntax mathematical expression parser with real-time live LaTeX preview.
+  * Configurable decimal precision stepper (0 to 15 decimal places).
+  * Multiplatform support: Android, Windows, and Linux (x86_64 AppImage).
 * **Developers**: **Trebol4Devop** (USAC engineering students: José Monzón, Diego Vásquez, Carlos del Cid, Ottoniel Vásquez).
-* **Repository Purpose**: This repository (`SAMNU-WEB`) houses the official web landing page, download distribution hub (Android APK, Windows EXE, Manual PDF), and tester recruitment portal.
+* **Repository Purpose**: This repository (`SAMNU-WEB`) houses the official web landing page, download distribution hub (Android APK, Windows EXE, Linux AppImage, Manual PDF), and tester recruitment portal.
 
 ---
 
@@ -65,14 +67,14 @@ All React components reside in `website/src/components/`:
 
 | Component | Responsibilities & Behavior |
 | :--- | :--- |
-| **`Navbar.jsx`** | Fixed header with brand logo. Uses `scroll` event listener to track viewport intersection and apply `.active` class to navigation links (`#inicio`, `#info`, `#galeria`, `#equipo`). |
-| **`Hero.jsx`** | Landing banner with version badge (`Versión 1.1.4`). Contains a 3D perspective floating image (`.hero-image img`) that automatically cycles between two app screenshots every 15,000ms using a fade transition. Handles Play Store modal trigger and Microsoft Store external link. |
-| **`Features.jsx`** | Displays 4 key features (+30 Algoritmos, Reportes PDF, Parser Avanzado, Enfoque Didáctico). Houses the download CTA section that triggers direct downloads of Android APK, Windows EXE, and Manual PDF via hidden DOM anchors (`forceDownload`). |
-| **`Gallery.jsx`** | Interactive carousel showcasing 9 app screenshots. Features autoplay (4500ms interval), previous/next arrow buttons (`&#10094;`/`&#10095;`), and clickable indicator dots. |
-| **`Team.jsx`** | Developer profiles for Trebol4Devop (José Monzón, Diego Vásquez, Carlos del Cid, Ottoniel Vásquez) with GitHub avatars and links, plus tech stack summary (Dart, Flutter, LaTeX). |
-| **`Footer.jsx`** | Trebol Asociados logo, educational disclaimer, GitHub link, LinkedIn link, and email contact (`trebol4devop@proton.me`). |
-| **`ContactModal.jsx`** | Controlled modal overlay (`isOpen` / `onClose`). Contains a form submitting POST requests directly to Formspree (`https://formspree.io/f/xbdjevkz`) for closed beta tester recruitment. |
-| **`App.jsx`** | Root integrator. Manages `isContactFormOpen` state. On mount, attaches `IntersectionObserver` instances to trigger scroll-reveal animations (`.reveal-on-scroll` -> `.is-visible`) and section active tracking (`.is-active`). |
+| **`Navbar.jsx`** | Fixed header with brand logo, v2.3.1 indicator, top scroll progress bar, mobile drawer menu, and active section tracking (`#inicio`, `#info`, `#galeria`, `#equipo`). |
+| **`Hero.jsx`** | Landing banner with version badge (`v2.3.1`), capability metrics, 3D floating preview image, official store CTAs, and Linux download anchor. |
+| **`Features.jsx`** | Displays 4 key pillars (+41 Métodos, Reportes KaTeX 2.0, Parser & LaTeX en Vivo, Precisión 0-15 Decimales). Houses direct download CTA for Android APK, Windows EXE, Linux AppImage, and Manual PDF. |
+| **`Gallery.jsx`** | Interactive carousel showcasing 7 app screenshots (SAMNU v2.3.1). Features autoplay (5000ms interval), previous/next arrow buttons, and clickable indicator dots. |
+| **`Team.jsx`** | Developer profiles for Trebol4Devop (José Monzón, Diego Vásquez, Carlos del Cid, Ottoniel Vásquez) with GitHub avatars and links, plus tech stack summary (Dart, Flutter, KaTeX 2.0, LaTeX, Desktop C++). |
+| **`Footer.jsx`** | Trebol Asociados logo, educational disclaimer, support buttons (Buy Me a Coffee, PayPal), GitHub, LinkedIn, email contact, and v2.3.1 status. |
+| **`BackgroundEffects.jsx`** | Subtle mathematical coordinate grid, ambient background glow, and lightweight interactive canvas particles. |
+| **`App.jsx`** | Root integrator. Attaches `IntersectionObserver` instances to trigger scroll-reveal animations (`.reveal-on-scroll` -> `.is-visible`) and section active tracking (`.is-active`). |
 
 ---
 
