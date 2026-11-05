@@ -33,7 +33,7 @@ export function ThemeToggle() {
     <button 
       onClick={toggleTheme} 
       aria-label="Alternar tema"
-      className="min-h-10 min-w-10 rounded-sm hover:bg-neutral-200 dark:hover:bg-neutral-800 flex items-center justify-center transition-colors text-neutral-700 dark:text-neutral-300 cursor-pointer"
+      className="min-h-10 min-w-10 rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-800/80 flex items-center justify-center transition-all duration-500 ease-out text-neutral-700 dark:text-neutral-300 cursor-pointer"
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}
     </button>

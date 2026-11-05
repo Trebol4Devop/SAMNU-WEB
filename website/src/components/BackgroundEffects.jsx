@@ -48,11 +48,11 @@ export default function BackgroundEffects() {
             mouseY += (targetMouseY - mouseY) * 0.05;
 
             const isDark = document.documentElement.classList.contains('dark');
-            const particleRgb = isDark ? '96, 165, 250' : '8, 60, 100';
+            const particleRgb = isDark ? '96, 165, 250' : '37, 99, 235';
 
             // Subtle radial glow following cursor
             const glow = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 280);
-            glow.addColorStop(0, isDark ? 'rgba(59, 130, 246, 0.04)' : 'rgba(8, 60, 100, 0.03)');
+            glow.addColorStop(0, isDark ? 'rgba(59, 130, 246, 0.06)' : 'rgba(37, 99, 235, 0.05)');
             glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = glow;
             ctx.fillRect(0, 0, width, height);

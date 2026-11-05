@@ -3,6 +3,7 @@
     "inicio": "Inicio",
     "caracteristicas": "Características",
     "descargas": "Descargas",
+    "web": "SAMNU Web",
     "galeria": "Galería",
     "equipo": "Equipo"
   },
@@ -13,8 +14,9 @@
     "description": "El software definitivo para estudiantes y profesionales de ingeniería y ciencias. Más de 41 algoritmos, cálculo diferencial e integral, ecuaciones diferenciales ordinarias y generador KaTeX de reportes paso a paso.",
     "playstore": "Google Play",
     "microsoftstore": "Microsoft Store",
+    "samnu_web": "SAMNU Web",
     "btn_direct_downloads": "Descargas directas",
-    "official_sources": "Descargas directas y disponibilidad en tiendas oficiales"
+    "official_sources": "Descargas directas, acceso web y disponibilidad en tiendas oficiales"
   },
   "features": {
     "header_title": "Potencia tu Aprendizaje",
@@ -35,6 +37,16 @@
     "btn_manual": "Manual de Usuario (PDF)",
     "btn_github_release": "Notas de versión en GitHub",
     "security_notice": "Verificado • Seguro • Sin Publicidad"
+  },
+  "web_app": {
+    "header_title": "SAMNU en Versión Web",
+    "header_subtitle": "Ejecuta los más de 41 algoritmos numéricos, el cálculo Stewart y la suite de ecuaciones diferenciales directamente desde cualquier navegador web moderno, sin descargar ni instalar binarios.",
+    "preview_heading": "SAMNU Web v2.3.1",
+    "preview_subheading": "Acceso instantáneo a la suite matemática completa directamente desde tu navegador.",
+    "launch_embedded": "Iniciar Visor Integrado",
+    "open_new_tab": "Abrir en una nueva pestaña",
+    "reload": "Reiniciar",
+    "loading_app": "Cargando el entorno de SAMNU Web..."
   },
   "gallery": {
     "header_title": "Interfaz Intuitiva y Moderna",
@@ -65,16 +77,23 @@
     "tech_stack": "Tecnologías y Motores del Proyecto:"
   },
   "footer": {
-    "edu_notice": "es un software científico y educativo desarrollado con orgullo en la USAC.",
+    "edu_notice": "es un software científico y educativo desarrollado por iniciativa de estudiantes de la USAC.",
     "support_tag": "Apoyo al Proyecto",
     "support_title": "¿Te ha sido útil SAMNU en tus cursos o proyectos?",
     "support_desc": "SAMNU es software libre, gratuito y sin anuncios. Tu contribución voluntaria nos ayuda a costear servidores y acelerar el desarrollo de nuevos algoritmos y versiones.",
     "community_title": "Canales Oficiales & Comunidad",
+    "samnu_web": "SAMNU Web",
+    "website": "Sitio Web",
     "discord": "Discord",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "contact": "Contacto",
+    "privacy": "Privacidad",
+    "privacy_policy": "Políticas de Privacidad",
+    "privacy_title": "Políticas de Privacidad y Protección de Datos",
+    "privacy_desc": "SAMNU respeta tu privacidad: no recopilamos información personal sensible ni compartimos tus datos con terceros. Conoce los términos completos en nuestra plataforma oficial.",
+    "view_privacy": "Ver Políticas de Privacidad",
     "copyright": "© 2026 - Trebol4Devop. Todos los derechos reservados.",
-    "version_info": "Universidad de San Carlos de Guatemala • Facultad de Ingeniería"
+    "version_info": "Iniciativa de estudiantes • Facultad de Ingeniería, USAC"
   }
 }

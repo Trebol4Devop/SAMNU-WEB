@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto flex flex-col gap-14">
                 
                 {/* Upper Tier: Support & Patronage Hub */}
-                <div className="bg-white/80 dark:bg-neutral-900/60 p-8 sm:p-10 rounded-2xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/80 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left reveal-on-scroll">
+                <div className="footer-content bg-white/80 dark:bg-neutral-900/60 p-8 sm:p-10 rounded-2xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/80 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left reveal-on-scroll">
                     <div className="max-w-xl">
                         <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-primary font-semibold block mb-2">
                             {t('footer.support_tag')}
@@ -32,7 +32,7 @@ export default function Footer() {
                         >
                             <ion-icon name="cafe-outline" style={{ fontSize: '1.25rem' }}></ion-icon> 
                             <span>Buy Me a Coffee</span>
-                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                         </a>
 
                         <a 
@@ -43,28 +43,40 @@ export default function Footer() {
                         >
                             <ion-icon name="logo-paypal" style={{ fontSize: '1.25rem' }}></ion-icon> 
                             <span>PayPal</span>
-                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                         </a>
                     </div>
                 </div>
 
                 {/* Middle Tier: Official Channels (Discord, LinkedIn, GitHub, Contact) */}
-                <div className="flex flex-col items-center gap-6 text-center reveal-on-scroll">
+                <div className="footer-content flex flex-col items-center gap-6 text-center reveal-on-scroll shadow-none">
                     <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
                         {t('footer.community_title')}
                     </span>
 
                     <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                        {/* Discord */}
+                        {/* SAMNU Web */}
                         <a 
-                            href="https://discord.gg/h9c6M97b" 
+                            href="./web/" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-[#5865F2] hover:text-white dark:bg-neutral-900 dark:hover:bg-[#5865F2] text-neutral-800 dark:text-neutral-200 dark:hover:text-white text-xs font-medium uppercase tracking-wider rounded-lg shadow-xs hover:shadow-md cursor-pointer"
+                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-brand-primary hover:text-white dark:bg-neutral-900 dark:hover:bg-brand-primary text-neutral-800 dark:text-neutral-200 dark:hover:text-white text-xs font-medium uppercase tracking-wider rounded-lg border border-neutral-300/40 dark:border-neutral-800 shadow-xs hover:shadow-md cursor-pointer"
                         >
-                            <ion-icon name="logo-discord" style={{ fontSize: '1.2rem' }}></ion-icon>
-                            <span>{t('footer.discord')}</span>
-                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            <ion-icon name="globe-outline" style={{ fontSize: '1.2rem' }}></ion-icon>
+                            <span>{t('footer.samnu_web')}</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        </a>
+
+                        {/* Sitio Web Trebol4Devop */}
+                        <a 
+                            href="https://trebol4devop.netlify.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-emerald-600 hover:text-white dark:bg-neutral-900 dark:hover:bg-emerald-600 dark:hover:text-white text-neutral-800 dark:text-neutral-200 dark:hover:text-white text-xs font-medium uppercase tracking-wider rounded-lg border border-neutral-300/40 dark:border-neutral-800 shadow-xs hover:shadow-md cursor-pointer"
+                        >
+                            <ion-icon name="globe-outline" style={{ fontSize: '1.2rem' }}></ion-icon>
+                            <span>{t('footer.website')}</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                         </a>
 
                         {/* LinkedIn */}
@@ -72,11 +84,11 @@ export default function Footer() {
                             href="https://www.linkedin.com/company/trebol4devop" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-[#0A66C2] hover:text-white dark:bg-neutral-900 dark:hover:bg-[#0A66C2] text-neutral-800 dark:text-neutral-200 dark:hover:text-white text-xs font-medium uppercase tracking-wider rounded-lg shadow-xs hover:shadow-md cursor-pointer"
+                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-[#0A66C2] hover:text-white dark:bg-neutral-900 dark:hover:bg-[#0A66C2] text-neutral-800 dark:text-neutral-200 dark:hover:text-white text-xs font-medium uppercase tracking-wider rounded-lg border border-neutral-300/40 dark:border-neutral-800 shadow-xs hover:shadow-md cursor-pointer"
                         >
                             <ion-icon name="logo-linkedin" style={{ fontSize: '1.2rem' }}></ion-icon>
                             <span>{t('footer.linkedin')}</span>
-                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                         </a>
 
                         {/* GitHub */}
@@ -84,23 +96,52 @@ export default function Footer() {
                             href="https://github.com/trebol4devop" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-neutral-900 hover:text-white dark:bg-neutral-900 dark:hover:bg-white dark:hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-medium uppercase tracking-wider rounded-lg shadow-xs hover:shadow-md cursor-pointer"
+                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-neutral-900 hover:text-white dark:bg-neutral-900 dark:hover:bg-white dark:hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-medium uppercase tracking-wider rounded-lg border border-neutral-300/40 dark:border-neutral-800 shadow-xs hover:shadow-md cursor-pointer"
                         >
                             <ion-icon name="logo-github" style={{ fontSize: '1.2rem' }}></ion-icon>
                             <span>{t('footer.github')}</span>
-                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                         </a>
 
                         {/* Contact */}
                         <a 
                             href="mailto:trebol4devop@proton.me"
-                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-brand-primary hover:text-white dark:bg-neutral-900 dark:hover:bg-brand-primary text-neutral-800 dark:text-neutral-200 dark:hover:text-white text-xs font-medium uppercase tracking-wider rounded-lg shadow-xs hover:shadow-md cursor-pointer"
+                            className="btn-fluid group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 bg-neutral-200/80 hover:bg-brand-primary hover:text-white dark:bg-neutral-900 dark:hover:bg-brand-primary text-neutral-800 dark:text-neutral-200 dark:hover:text-white text-xs font-medium uppercase tracking-wider rounded-lg border border-neutral-300/40 dark:border-neutral-800 shadow-xs hover:shadow-md cursor-pointer"
                         >
                             <ion-icon name="mail-outline" style={{ fontSize: '1.2rem' }}></ion-icon>
                             <span>{t('footer.contact')}</span>
-                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">✉</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">✉</span>
                         </a>
                     </div>
+                </div>
+
+                {/* Dedicated Privacy Policy & Data Protection Section */}
+                <div 
+                    id="privacidad" 
+                    className="bg-white/70 dark:bg-neutral-900/50 p-6 sm:p-8 rounded-2xl border border-neutral-200/60 dark:border-neutral-800/80 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left reveal-on-scroll"
+                >
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-brand-primary flex items-center justify-center shrink-0">
+                            <ion-icon name="shield-checkmark-outline" style={{ fontSize: '1.5rem' }}></ion-icon>
+                        </div>
+                        <div>
+                            <h4 className="text-base font-display font-bold text-neutral-900 dark:text-white mb-1">
+                                {t('footer.privacy_title')}
+                            </h4>
+                            <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-200 max-w-xl leading-relaxed">
+                                {t('footer.privacy_desc')}
+                            </p>
+                        </div>
+                    </div>
+                    <a 
+                        href="https://politicas-de-privacidad-trebol4devop.netlify.app/policy.html?id=privacy_es_microsoftstore" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn-fluid group inline-flex min-h-11 items-center justify-center gap-2.5 px-6 py-3 bg-blue-800 hover:bg-blue-900 text-white dark:bg-blue-700 dark:hover:bg-blue-800 font-semibold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-md shadow-blue-950/25 hover:shadow-xl hover:shadow-blue-900/40 cursor-pointer shrink-0"
+                    >
+                        <span className="text-white font-semibold tracking-wider">{t('footer.view_privacy')}</span>
+                        <span className="text-white text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                    </a>
                 </div>
 
                 {/* Bottom Tier: Branding, USAC Notice & Copyright */}
@@ -111,7 +152,7 @@ export default function Footer() {
                             alt="Logo Trébol Asociados" 
                             className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity dark:brightness-0 dark:invert" 
                         />
-                        <p className="leading-snug max-w-sm">
+                        <p className="leading-snug max-w-md">
                             <strong className="text-neutral-800 dark:text-neutral-200 font-medium">SAMNU</strong> {t('footer.edu_notice')}
                         </p>
                     </div>

@@ -53,9 +53,9 @@ export default function Features() {
                 {/* Continuous, Borderless Feature Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {/* Card 1 */}
-                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between">
+                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-500 ease-out shadow-xs hover:shadow-md flex flex-col justify-between">
                         <div>
-                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors">
+                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors duration-500 ease-out">
                                 <ion-icon name="calculator-outline" style={{ fontSize: '1.5rem' }}></ion-icon>
                             </div>
                             <h3 className="text-base sm:text-lg font-display font-bold text-neutral-900 dark:text-white mb-2">
@@ -68,9 +68,9 @@ export default function Features() {
                     </div>
 
                     {/* Card 2 */}
-                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between">
+                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-500 ease-out shadow-xs hover:shadow-md flex flex-col justify-between">
                         <div>
-                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors">
+                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors duration-500 ease-out">
                                 <ion-icon name="document-text-outline" style={{ fontSize: '1.5rem' }}></ion-icon>
                             </div>
                             <h3 className="text-base sm:text-lg font-display font-bold text-neutral-900 dark:text-white mb-2">
@@ -83,9 +83,9 @@ export default function Features() {
                     </div>
 
                     {/* Card 3 */}
-                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between">
+                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-500 ease-out shadow-xs hover:shadow-md flex flex-col justify-between">
                         <div>
-                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors">
+                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors duration-500 ease-out">
                                 <ion-icon name="code-slash-outline" style={{ fontSize: '1.5rem' }}></ion-icon>
                             </div>
                             <h3 className="text-base sm:text-lg font-display font-bold text-neutral-900 dark:text-white mb-2">
@@ -98,9 +98,9 @@ export default function Features() {
                     </div>
 
                     {/* Card 4 */}
-                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between">
+                    <div className="feature-card group relative bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-7 sm:p-8 transition-all duration-500 ease-out shadow-xs hover:shadow-md flex flex-col justify-between">
                         <div>
-                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors">
+                            <div className="w-12 h-12 bg-neutral-200/80 dark:bg-neutral-800 flex items-center justify-center text-brand-primary mb-6 transition-colors duration-500 ease-out">
                                 <ion-icon name="school-outline" style={{ fontSize: '1.5rem' }}></ion-icon>
                             </div>
                             <h3 className="text-base sm:text-lg font-display font-bold text-neutral-900 dark:text-white mb-2">
@@ -175,7 +175,7 @@ export default function Features() {
                         >
                             <ion-icon name="logo-github" style={{ fontSize: '1.1rem' }}></ion-icon> 
                             <span>{t('features.btn_github_release')}</span>
-                            <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                            <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                         </button>
                     </div>
 

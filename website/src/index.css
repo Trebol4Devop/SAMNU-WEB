@@ -49,9 +49,29 @@
     color: #ffffff;
   }
 
-  .dark ::selection {
+  ::-moz-selection {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+
+  .dark ::selection,
+  :root.dark ::selection {
     background-color: #3b82f6;
     color: #ffffff;
+  }
+
+  .dark ::-moz-selection,
+  :root.dark ::-moz-selection {
+    background-color: #3b82f6;
+    color: #ffffff;
+  }
+
+  /* Transición fluida, cinematográfica y desacelerada para todos los botones y enlaces interactivos */
+  button,
+  a {
+    transition-property: color, background-color, border-color, opacity, box-shadow, transform, filter;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    transition-duration: 550ms;
   }
 }
 
@@ -80,24 +100,37 @@ html, body {
   transform: translateY(0);
 }
 
-/* Ultra-Fluid Button Hover & Microinteractions */
+/* Ultra-Fluid Button Hover & Microinteractions (Smooth, gradual and luxurious feel) */
 .btn-fluid {
   position: relative;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              background-color 0.35s ease, 
-              color 0.35s ease, 
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.35s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, box-shadow;
 }
 
 .btn-fluid:hover {
-  transform: translateY(-2.5px);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -6px rgba(37, 99, 235, 0.28);
+}
+
+:root.dark .btn-fluid:hover {
+  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.6), 0 0 20px -4px rgba(59, 130, 246, 0.25);
 }
 
 .btn-fluid:active {
-  transform: translateY(0) scale(0.98);
-  transition-duration: 0.12s;
+  transform: translateY(-0.5px) scale(0.985);
+  transition-duration: 0.18s;
+}
+
+.btn-fluid span,
+.btn-fluid ion-icon,
+.btn-fluid svg {
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* 3D Smooth levitation & decoupled hover for hero mockup */
@@ -117,8 +150,8 @@ html, body {
 
 .hero-mockup-interactive {
   transform: perspective(1400px) rotateX(10deg) rotateY(-14deg) rotateZ(4deg) scale(1.02);
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
-              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 1.5s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, filter;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.16));
 }
@@ -128,7 +161,7 @@ html, body {
 }
 
 .hero-mockup-interactive:hover {
-  transform: perspective(1400px) rotateX(3deg) rotateY(-4deg) rotateZ(0.8deg) scale(1.045) translateY(-6px);
+  transform: perspective(1400px) rotateX(12deg) rotateY(-16deg) rotateZ(4deg) translateY(-10px) translateZ(25px) scale(1.04);
   filter: drop-shadow(0 32px 55px rgba(0, 0, 0, 0.28)) drop-shadow(0 0 45px rgba(37, 99, 235, 0.28));
   cursor: pointer;
 }
@@ -139,10 +172,10 @@ html, body {
 
 @media (max-width: 1024px) {
   .hero-mockup-interactive {
-    transform: perspective(1200px) rotateX(5deg) rotateY(-7deg) scale(1);
+    transform: perspective(1200px) rotateX(8deg) rotateY(-10deg) rotateZ(2.5deg) scale(1);
   }
   .hero-mockup-interactive:hover {
-    transform: perspective(1200px) rotateX(1deg) rotateY(-2deg) scale(1.025) translateY(-4px);
+    transform: perspective(1200px) rotateX(9deg) rotateY(-11deg) rotateZ(2.5deg) translateY(-6px) scale(1.025);
   }
 }
 
@@ -190,27 +223,29 @@ html, body {
 }
 
 :root {
-  --brand-primary: #536d76;
-  --ui-page: #f4f6f7;
-  --ui-surface: #fff;
-  --ui-surface-soft: #e9edef;
-  --ui-ink: #1b252a;
-  --ui-muted: #58656b;
-  --ui-accent: #536d76;
-  --ui-accent-contrast: #fff;
-  --ui-shadow: rgba(24, 35, 40, 0.11);
+  --brand-primary: #2563eb;
+  --ui-page: #f6f8fb;
+  --ui-surface: #ffffff;
+  --ui-surface-soft: #edf2fa;
+  --ui-ink: #0f172a;
+  --ui-muted: #475569;
+  --ui-accent: #2563eb;
+  --ui-accent-hover: #1d4ed8;
+  --ui-accent-contrast: #ffffff;
+  --ui-shadow: rgba(30, 58, 138, 0.12);
 }
 
 :root.dark {
-  --brand-primary: #9bb7be;
-  --ui-page: #0c1115;
-  --ui-surface: #151c21;
-  --ui-surface-soft: #1b252b;
-  --ui-ink: #e7ecee;
-  --ui-muted: #aab5ba;
-  --ui-accent: #9bb7be;
-  --ui-accent-contrast: #11191d;
-  --ui-shadow: rgba(0, 0, 0, 0.32);
+  --brand-primary: #3b82f6;
+  --ui-page: #080c14;
+  --ui-surface: #0f1726;
+  --ui-surface-soft: #152238;
+  --ui-ink: #f1f5f9;
+  --ui-muted: #94a3b8;
+  --ui-accent: #3b82f6;
+  --ui-accent-hover: #60a5fa;
+  --ui-accent-contrast: #ffffff;
+  --ui-shadow: rgba(0, 0, 0, 0.55);
 }
 
 body {
@@ -246,16 +281,16 @@ a:focus-visible {
   padding-top: 132px;
   padding-bottom: 88px;
   background:
-    radial-gradient(ellipse at 78% 45%, color-mix(in srgb, var(--ui-accent) 12%, transparent), transparent 38%),
-    radial-gradient(ellipse at 8% 100%, color-mix(in srgb, var(--ui-accent) 7%, transparent), transparent 42%),
+    radial-gradient(ellipse at 78% 45%, color-mix(in srgb, var(--ui-accent) 14%, transparent), transparent 45%),
+    radial-gradient(ellipse at 8% 100%, color-mix(in srgb, var(--ui-accent) 9%, transparent), transparent 48%),
     var(--ui-page) !important;
 }
 
 :root.dark #inicio {
   background:
-    radial-gradient(ellipse at 78% 45%, rgba(155, 183, 190, 0.1), transparent 38%),
-    radial-gradient(ellipse at 8% 100%, rgba(155, 183, 190, 0.06), transparent 42%),
-    linear-gradient(135deg, #0c1115, #121a20) !important;
+    radial-gradient(ellipse at 78% 45%, rgba(59, 130, 246, 0.15), transparent 45%),
+    radial-gradient(ellipse at 8% 100%, rgba(37, 99, 235, 0.10), transparent 48%),
+    linear-gradient(135deg, #080c14, #0f172a) !important;
 }
 
 #inicio::before,
@@ -272,7 +307,7 @@ a:focus-visible {
   right: -10%;
   width: min(62vw, 860px);
   aspect-ratio: 1;
-  box-shadow: 0 0 0 48px color-mix(in srgb, var(--ui-accent) 2%, transparent), 0 0 0 110px color-mix(in srgb, var(--ui-accent) 1%, transparent);
+  box-shadow: 0 0 0 48px color-mix(in srgb, var(--ui-accent) 3%, transparent), 0 0 0 110px color-mix(in srgb, var(--ui-accent) 1.5%, transparent);
 }
 
 #inicio::after {
@@ -299,11 +334,11 @@ a:focus-visible {
 }
 
 #inicio h1 .animate-shimmer {
-  background-image: linear-gradient(90deg, var(--ui-accent) 0%, #718991 50%, var(--ui-accent) 100%);
+  background-image: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 50%, #1d4ed8 100%);
 }
 
 :root.dark #inicio h1 .animate-shimmer {
-  background-image: linear-gradient(90deg, #d6e1e4 0%, var(--ui-accent) 50%, #d6e1e4 100%);
+  background-image: linear-gradient(90deg, #60a5fa 0%, #93c5fd 50%, #3b82f6 100%);
 }
 
 #inicio p {
@@ -326,10 +361,12 @@ a:focus-visible {
 #inicio #btn-playstore {
   background: var(--ui-accent);
   color: var(--ui-accent-contrast);
+  box-shadow: 0 14px 28px -4px rgba(37, 99, 235, 0.35);
 }
 
 #inicio #btn-playstore:hover {
-  background: color-mix(in srgb, var(--ui-accent) 84%, var(--ui-ink));
+  background: var(--ui-accent-hover);
+  box-shadow: 0 20px 36px -4px rgba(37, 99, 235, 0.45);
   transform: translateY(-3px);
 }
 
@@ -360,7 +397,7 @@ a:focus-visible {
 #inicio .animate-float-3d {
   max-width: 94%;
   border: 0;
-  box-shadow: 0 34px 80px var(--ui-shadow), 0 0 0 8px color-mix(in srgb, var(--ui-accent) 5%, transparent);
+  box-shadow: 0 34px 80px rgba(30, 58, 138, 0.22), 0 0 0 1px rgba(59, 130, 246, 0.18);
 }
 
 #caracteristicas {
@@ -399,8 +436,14 @@ a:focus-visible {
   border: 0;
   border-radius: 20px;
   background: var(--ui-surface);
-  box-shadow: 0 20px 48px var(--ui-shadow);
-  transition: transform 280ms ease, box-shadow 280ms ease;
+  box-shadow: 0 18px 45px rgba(30, 58, 138, 0.08);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root.dark #caracteristicas .feature-card {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
 }
 
 #caracteristicas .feature-card:nth-child(1) {
@@ -426,13 +469,17 @@ a:focus-visible {
   height: 56px;
   border: 0;
   border-radius: 14px;
-  background: color-mix(in srgb, var(--ui-accent) 10%, var(--ui-surface));
+  background: color-mix(in srgb, var(--ui-accent) 12%, var(--ui-surface));
   color: var(--ui-accent);
 }
 
 #caracteristicas .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 28px 60px var(--ui-shadow);
+  box-shadow: 0 26px 54px -10px rgba(37, 99, 235, 0.22), 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+:root.dark #caracteristicas .feature-card:hover {
+  box-shadow: 0 26px 54px -10px rgba(0, 0, 0, 0.65), 0 0 35px -5px rgba(59, 130, 246, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.4);
 }
 
 #caracteristicas .feature-card h3 {
@@ -491,7 +538,10 @@ a:focus-visible {
   background: var(--ui-surface);
   color: var(--ui-ink);
   box-shadow: 0 14px 32px var(--ui-shadow);
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #descargas .download-cta #btn-android:hover,
@@ -499,7 +549,7 @@ a:focus-visible {
 #descargas .download-cta #btn-linux:hover {
   transform: translateY(-4px);
   background: color-mix(in srgb, var(--ui-surface) 90%, var(--ui-accent));
-  box-shadow: 0 22px 42px var(--ui-shadow);
+  box-shadow: 0 22px 42px -10px rgba(37, 99, 235, 0.32), 0 0 0 1px rgba(59, 130, 246, 0.3);
 }
 
 #descargas .download-cta #btn-manual,
@@ -508,6 +558,9 @@ a:focus-visible {
   border-radius: 8px;
   background: color-mix(in srgb, var(--ui-surface) 74%, transparent);
   color: var(--ui-ink);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #descargas .download-cta #btn-manual:hover,
@@ -547,8 +600,12 @@ a:focus-visible {
 
 #galeria img {
   border: 0;
-  border-radius: 10px;
-  box-shadow: 0 30px 70px var(--ui-shadow) !important;
+  border-radius: 12px;
+  box-shadow: 0 30px 70px -10px rgba(30, 58, 138, 0.28) !important;
+}
+
+:root.dark #galeria img {
+  box-shadow: 0 30px 70px -10px rgba(0, 0, 0, 0.85), 0 0 45px -8px rgba(59, 130, 246, 0.35) !important;
 }
 
 #galeria button[aria-label="Imagen anterior"],
@@ -580,7 +637,13 @@ a:focus-visible {
   border: 0;
   border-radius: 18px;
   background: var(--ui-surface);
-  box-shadow: 0 18px 45px var(--ui-shadow);
+  box-shadow: 0 18px 45px rgba(30, 58, 138, 0.08);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root.dark #equipo .team-card {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
 }
 
 #equipo .team-card img {
@@ -600,16 +663,37 @@ a:focus-visible {
   color: var(--ui-accent-contrast);
 }
 
+#equipo .team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px -10px rgba(37, 99, 235, 0.22), 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+:root.dark #equipo .team-card:hover {
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.65), 0 0 35px -5px rgba(59, 130, 246, 0.28), 0 0 0 1px rgba(59, 130, 246, 0.35);
+}
+
 footer {
   border: 0;
   background: var(--ui-surface-soft) !important;
   color: var(--ui-ink) !important;
 }
 
-footer p,
-footer span,
-footer a {
+footer p:not([class*="text-"]),
+footer span:not([class*="text-"]),
+footer a:not([class*="text-"]) {
   color: var(--ui-muted);
+}
+
+footer .btn-fluid,
+footer .btn-fluid span {
+  color: inherit;
+}
+
+footer .btn-fluid.text-white,
+footer .btn-fluid.text-white span,
+footer .text-white,
+footer .text-white span {
+  color: #ffffff !important;
 }
 
 button,
@@ -631,7 +715,7 @@ button,
 .animate-float-3d:hover {
   animation: float-3d-hover 6s ease-in-out infinite !important;
   animation-play-state: running !important;
-  box-shadow: 0 40px 90px var(--ui-shadow), 0 0 0 8px color-mix(in srgb, var(--ui-accent) 8%, transparent);
+  box-shadow: 0 40px 95px rgba(37, 99, 235, 0.35), 0 0 50px -5px rgba(59, 130, 246, 0.4), 0 0 0 1px rgba(96, 165, 250, 0.35);
   cursor: default;
 }
 
@@ -713,5 +797,10 @@ button,
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

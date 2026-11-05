@@ -10,6 +10,34 @@
   port = 8888
   target = "static"
 
+[[headers]]
+  for = "/web/*"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "credentialless"
+
+[[headers]]
+  for = "/*.wasm"
+  [headers.values]
+    Content-Type = "application/wasm"
+
+# Flutter Web entry point redirects
+[[redirects]]
+  from = "/web"
+  to = "/web/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/web/"
+  to = "/web/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/web/*"
+  to = "/web/:splat"
+  status = 200
+
+# Landing page Single Page Application fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"

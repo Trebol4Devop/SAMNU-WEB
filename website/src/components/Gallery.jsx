@@ -3,11 +3,12 @@ import { useTranslation } from 'react-i18next';
 
 export default function Gallery() {
     const { t } = useTranslation();
+    const [activeIndex, setActiveIndex] = useState(0);
     const [rotationAngle, setRotationAngle] = useState(0);
     const [windowWidth, setWindowWidth] = useState(1024);
     const [isHovered, setIsHovered] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
-    const dragStartRef = useRef(null);
+    const touchStartRef = useRef(null);
+    const filmstripRef = useRef(null);
 
     const slides = useMemo(() => [
         { src: './assets/images-proyects/gallery/gallery_1_calculo_biseccion.png', altKey: 'slide0_alt' },
@@ -28,81 +29,97 @@ export default function Gallery() {
 
     const stepAngle = slides.length > 0 ? 360 / slides.length : 0;
 
-    // Exact trigonometric radius for an authentic polygonal 3D cylinder
+    // Generous trigonometric radius calculation ensuring elegant spacing and zero overlapping
     const radius = useMemo(() => {
         if (slides.length <= 1) return 0;
         const isMobile = windowWidth < 640;
         const isTablet = windowWidth >= 640 && windowWidth < 1024;
-        const cardWidth = isMobile ? 300 : isTablet ? 450 : 580;
-        const halfAngleRad = (Math.PI / slides.length);
-        const naturalRadius = Math.round((cardWidth / 2) / Math.tan(halfAngleRad));
-        // Add subtle breathing space for cylindrical curvature depth
-        return naturalRadius + (isMobile ? 30 : 50);
-    }, [slides.length, windowWidth]);
-
-    const activeIndex = useMemo(() => {
-        if (slides.length === 0) return 0;
-        const normalized = Math.round(-rotationAngle / stepAngle) % slides.length;
-        return (normalized + slides.length) % slides.length;
-    }, [rotationAngle, stepAngle, slides.length]);
+        const halfCardWidth = isMobile ? 150 : isTablet ? 210 : 260;
+        const baseRadius = isMobile ? 480 : isTablet ? 660 : 840;
+        const halfAngleRadians = (stepAngle * Math.PI) / 360;
+        const safeRadius = Math.round(halfCardWidth / Math.tan(halfAngleRadians) + 160);
+        return Math.max(baseRadius, safeRadius);
+    }, [slides.length, stepAngle, windowWidth]);
 
     const showNext = useCallback(() => {
-        setRotationAngle((prev) => prev - stepAngle);
-    }, [stepAngle]);
+        if (slides.length < 2) return;
+        setRotationAngle((prev) => prev + stepAngle);
+        setActiveIndex((current) => (current + 1) % slides.length);
+    }, [slides.length, stepAngle]);
 
     const showPrevious = useCallback(() => {
-        setRotationAngle((prev) => prev + stepAngle);
-    }, [stepAngle]);
+        if (slides.length < 2) return;
+        setRotationAngle((prev) => prev - stepAngle);
+        setActiveIndex((current) => (current - 1 + slides.length) % slides.length);
+    }, [slides.length, stepAngle]);
 
     const goToIndex = useCallback((targetIndex) => {
-        let diff = (targetIndex - activeIndex) % slides.length;
+        if (targetIndex === activeIndex) return;
+        let diff = targetIndex - activeIndex;
         if (diff > slides.length / 2) diff -= slides.length;
         if (diff < -slides.length / 2) diff += slides.length;
-        setRotationAngle((prev) => prev - diff * stepAngle);
+        setRotationAngle((prev) => prev + diff * stepAngle);
+        setActiveIndex(targetIndex);
     }, [activeIndex, slides.length, stepAngle]);
 
-    // Auto-rotation every 6 seconds when not hovered/dragging
+    // Auto-advance every 6s when not hovered
     useEffect(() => {
-        if (slides.length <= 1 || isHovered || isDragging) return;
+        if (slides.length <= 1 || isHovered) return;
         const timer = setInterval(() => {
             showNext();
         }, 6000);
         return () => clearInterval(timer);
-    }, [slides.length, isHovered, isDragging, showNext]);
+    }, [slides.length, isHovered, showNext]);
 
-    // Touch & pointer handlers for interactive cylinder spin
-    const handlePointerDown = (e) => {
-        setIsDragging(true);
-        dragStartRef.current = { x: e.clientX, initialAngle: rotationAngle };
+    // Keyboard navigation (only when not typing in form inputs)
+    useEffect(() => {
+        const onKeyDown = (event) => {
+            if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+            if (event.key === 'ArrowRight') showNext();
+            if (event.key === 'ArrowLeft') showPrevious();
+        };
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, [showNext, showPrevious]);
+
+    // Horizontally center active thumbnail strictly within the filmstrip container without moving window scroll
+    useEffect(() => {
+        const container = filmstripRef.current;
+        const thumbnail = container?.children[activeIndex];
+        if (!container || !thumbnail) return;
+
+        const containerRect = container.getBoundingClientRect();
+        const thumbRect = thumbnail.getBoundingClientRect();
+        const offset = (thumbRect.left - containerRect.left) - (containerRect.width / 2) + (thumbRect.width / 2);
+
+        container.scrollBy({
+            left: offset,
+            behavior: 'smooth'
+        });
+    }, [activeIndex]);
+
+    // Touch swipe handling adapted from Photos_Web_Site
+    const handleTouchStart = (event) => {
+        const touch = event.touches[0];
+        touchStartRef.current = { x: touch.clientX, y: touch.clientY };
     };
 
-    const handlePointerMove = (e) => {
-        if (!isDragging || !dragStartRef.current) return;
-        const deltaX = e.clientX - dragStartRef.current.x;
-        // Sensitivity: 0.25 deg per pixel
-        setRotationAngle(dragStartRef.current.initialAngle + deltaX * 0.25);
-    };
-
-    const handlePointerUp = (e) => {
-        if (!isDragging || !dragStartRef.current) return;
-        setIsDragging(false);
-        const deltaX = e.clientX - dragStartRef.current.x;
-        dragStartRef.current = null;
-        // Snap to nearest cylinder facet
-        if (Math.abs(deltaX) > 40) {
-            if (deltaX < 0) {
-                setRotationAngle((prev) => Math.floor(prev / stepAngle) * stepAngle);
-            } else {
-                setRotationAngle((prev) => Math.ceil(prev / stepAngle) * stepAngle);
-            }
-        } else {
-            setRotationAngle((prev) => Math.round(prev / stepAngle) * stepAngle);
+    const handleTouchEnd = (event) => {
+        const start = touchStartRef.current;
+        touchStartRef.current = null;
+        if (!start || slides.length < 2) return;
+        const touch = event.changedTouches[0];
+        const deltaX = start.x - touch.clientX;
+        const deltaY = start.y - touch.clientY;
+        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX > 0) showNext();
+            else showPrevious();
         }
     };
 
     return (
-        <section id="galeria" className="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto transition-colors duration-300 relative select-none">
-            <div className="section-header text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal-on-scroll relative z-10">
+        <section id="galeria" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto transition-colors duration-300 relative select-none">
+            <div className="section-header text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal-on-scroll relative z-10">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-neutral-900 dark:text-white mb-4">
                     {t('gallery.header_title')}
                 </h2>
@@ -113,124 +130,89 @@ export default function Gallery() {
 
             {/* 3D Cylindrical Carousel Viewport */}
             <div 
-                className="relative flex min-h-[420px] sm:min-h-[520px] md:min-h-[620px] w-full flex-col items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing"
+                className="relative flex min-h-[400px] sm:min-h-[480px] md:min-h-[560px] w-full flex-col items-center justify-center overflow-hidden py-4"
                 onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => {
-                    setIsHovered(false);
-                    if (isDragging) setIsDragging(false);
-                }}
-                onPointerDown={handlePointerDown}
-                onPointerMove={handlePointerMove}
-                onPointerUp={handlePointerUp}
-                onPointerCancel={handlePointerUp}
+                onMouseLeave={() => setIsHovered(false)}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                onTouchCancel={() => { touchStartRef.current = null; }}
             >
                 {/* 3D Perspective Stage */}
                 <div 
-                    className="relative flex w-full flex-1 items-center justify-center py-6" 
-                    style={{ 
-                        perspective: '1500px', 
-                        perspectiveOrigin: '50% 50%' 
-                    }}
+                    className="relative flex w-full flex-1 items-center justify-center" 
+                    style={{ perspective: '1500px', perspectiveOrigin: '50% 50%' }}
                 >
-                    {/* The 3D Rotating Cylinder Drum */}
+                    {/* Continuous 3D Cylinder Drum */}
                     <div
                         className="relative flex items-center justify-center will-change-transform"
                         style={{
                             transformStyle: 'preserve-3d',
                             transform: `translateZ(-${radius}px) rotateY(${rotationAngle}deg)`,
-                            transition: isDragging ? 'none' : 'transform 0.85s cubic-bezier(0.16, 1, 0.3, 1)'
+                            transition: 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)'
                         }}
                     >
                         {slides.map((item, index) => {
-                            // Compute normalized angle relative to camera front [-180, 180]
-                            const cardAbsoluteAngle = index * stepAngle;
-                            const totalRelativeAngle = ((cardAbsoluteAngle + rotationAngle) % 360 + 360) % 360;
-                            const angleFromFront = totalRelativeAngle > 180 ? totalRelativeAngle - 360 : totalRelativeAngle;
-                            const absAngle = Math.abs(angleFromFront);
-
-                            const isFront = absAngle < 28;
-                            const isSide = absAngle >= 28 && absAngle < 85;
-                            const isBackSide = absAngle >= 85 && absAngle < 135;
-                            const isRear = absAngle >= 135;
+                            const isCurrent = index === activeIndex;
+                            let distance = Math.abs(index - activeIndex);
+                            distance = Math.min(distance, slides.length - distance);
 
                             return (
-                                <div
+                                <button
                                     key={index}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        if (!isFront) goToIndex(index);
+                                    type="button"
+                                    onClick={() => {
+                                        if (!isCurrent) goToIndex(index);
                                     }}
+                                    aria-label={t(`gallery.${item.altKey}`)}
+                                    aria-current={isCurrent ? 'true' : undefined}
                                     style={{
                                         position: 'absolute',
-                                        transform: `rotateY(${cardAbsoluteAngle}deg) translateZ(${radius}px)`,
+                                        transform: `rotateY(${-index * stepAngle}deg) translateZ(${radius}px)`,
                                         backfaceVisibility: 'hidden',
                                         WebkitBackfaceVisibility: 'hidden'
                                     }}
-                                    className={`flex items-center justify-center transition-all duration-700 ease-out ${
-                                        isFront 
-                                            ? 'z-30 opacity-100 scale-100 cursor-default' 
-                                            : isSide 
-                                            ? 'z-20 opacity-75 scale-90 hover:opacity-95 hover:scale-95 cursor-pointer' 
-                                            : isBackSide
-                                            ? 'z-10 opacity-25 scale-80 pointer-events-none'
-                                            : 'z-0 opacity-0 scale-70 pointer-events-none'
+                                    className={`flex items-center justify-center transition-opacity duration-500 ease-out focus:outline-none ${
+                                        isCurrent 
+                                            ? 'z-30 opacity-100 cursor-default' 
+                                            : distance === 1 
+                                            ? 'z-10 opacity-70 hover:opacity-95 cursor-pointer' 
+                                            : 'z-0 opacity-20 pointer-events-none'
                                     }`}
                                 >
-                                    {/* Pure clean image with adaptive cylinder shading and depth drop-shadow */}
-                                    <div 
-                                        className="relative transition-all duration-700"
-                                        style={{
-                                            filter: isFront 
-                                                ? 'brightness(1) contrast(1)' 
-                                                : isSide 
-                                                ? 'brightness(0.85) contrast(0.95)' 
-                                                : 'brightness(0.65)'
-                                        }}
-                                    >
-                                        <img
-                                            src={item.src}
-                                            alt={t(`gallery.${item.altKey}`)}
-                                            className={`w-[84vw] max-w-[310px] sm:max-w-[450px] md:max-w-[580px] h-auto max-h-[44vh] sm:max-h-[52vh] object-contain block select-none rounded-xl transition-shadow duration-700 ${
-                                                isFront
-                                                    ? 'shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] dark:shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9)] ring-1 ring-black/5 dark:ring-white/10'
-                                                    : 'shadow-[0_15px_35px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_45px_-12px_rgba(0,0,0,0.7)]'
-                                            }`}
-                                            loading="eager"
-                                            draggable={false}
-                                        />
-                                    </div>
-                                </div>
+                                    <img
+                                        src={item.src}
+                                        alt={t(`gallery.${item.altKey}`)}
+                                        loading="eager"
+                                        decoding="async"
+                                        className="block max-h-[38dvh] sm:max-h-[44vh] md:max-h-[48vh] w-auto max-w-[72vw] sm:max-w-[380px] md:max-w-[480px] select-none object-contain rounded-xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.35)] dark:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.85)]"
+                                        draggable={false}
+                                    />
+                                </button>
                             );
                         })}
                     </div>
                 </div>
 
-                {/* Floating Navigation Controls */}
+                {/* Floating Navigation Controls from Photos_Web_Site reference */}
                 {slides.length > 1 && (
                     <>
                         <button
                             type="button"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                showPrevious();
-                            }}
+                            onClick={showPrevious}
                             aria-label={t('gallery.prev')}
-                            className="btn-fluid absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-40 flex size-10 sm:size-12 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-xl hover:scale-105 active:scale-95 cursor-pointer dark:bg-neutral-900/95 dark:text-neutral-100 backdrop-blur-md border border-black/5 dark:border-white/10"
+                            className="absolute left-2 sm:left-6 top-1/2 z-30 flex size-11 sm:size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-md transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800 backdrop-blur-md border border-neutral-200/80 dark:border-neutral-800/80 cursor-pointer"
                         >
-                            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="m15 18-6-6 6-6"/>
                             </svg>
                         </button>
                         <button
                             type="button"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                showNext();
-                            }}
+                            onClick={showNext}
                             aria-label={t('gallery.next')}
-                            className="btn-fluid absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-40 flex size-10 sm:size-12 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-xl hover:scale-105 active:scale-95 cursor-pointer dark:bg-neutral-900/95 dark:text-neutral-100 backdrop-blur-md border border-black/5 dark:border-white/10"
+                            className="absolute right-2 sm:right-6 top-1/2 z-30 flex size-11 sm:size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-md transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800 backdrop-blur-md border border-neutral-200/80 dark:border-neutral-800/80 cursor-pointer"
                         >
-                            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="m9 18 6-6-6-6"/>
                             </svg>
                         </button>
@@ -238,21 +220,37 @@ export default function Gallery() {
                 )}
             </div>
 
-            {/* Clean Cylindrical Dot & Bar Indicators */}
-            <div className="flex justify-center items-center gap-2.5 mt-8 z-10 relative" aria-label="Indicadores de carrusel">
-                {slides.map((_, idx) => (
-                    <button 
-                        key={idx} 
-                        type="button" 
-                        className={`h-[3px] transition-all duration-400 ease-out cursor-pointer rounded-full ${
-                            idx === activeIndex 
-                                ? 'w-10 bg-brand-primary' 
-                                : 'w-3 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400 dark:hover:bg-neutral-500 hover:w-5'
-                        }`} 
-                        aria-label={`Ir a diapositiva ${idx + 1}`}
-                        onClick={() => goToIndex(idx)}
-                    />
-                ))}
+            {/* Filmstrip Thumbnail Bar (Clean without border or ring box) */}
+            <div className="z-20 w-full max-w-xl mx-auto mt-6 px-4">
+                <div
+                    ref={filmstripRef}
+                    className="flex items-center justify-center gap-2 overflow-x-auto py-2 px-3 bg-neutral-100/60 dark:bg-neutral-900/60 rounded-2xl backdrop-blur-md shadow-xs"
+                    style={{ scrollbarWidth: 'none' }}
+                >
+                    {slides.map((item, index) => {
+                        const isSelected = index === activeIndex;
+                        return (
+                            <button
+                                key={index}
+                                type="button"
+                                onClick={() => goToIndex(index)}
+                                aria-label={t(`gallery.${item.altKey}`)}
+                                className={`relative h-10 sm:h-11 w-12 sm:w-14 shrink-0 overflow-hidden rounded-lg transition-all duration-500 ease-out cursor-pointer ${
+                                    isSelected
+                                        ? 'scale-105 opacity-100 shadow-sm'
+                                        : 'opacity-40 hover:opacity-80 scale-95'
+                                }`}
+                            >
+                                <img
+                                    src={item.src}
+                                    alt=""
+                                    loading="lazy"
+                                    className="h-full w-full object-cover"
+                                />
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
         </section>
     );

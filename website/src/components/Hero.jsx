@@ -61,30 +61,40 @@ export default function Hero() {
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 w-full">
                             <button 
                                 id="btn-playstore" 
-                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 shadow-lg shadow-black/15 dark:shadow-white/5 hover:shadow-xl cursor-pointer"
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-medium text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 dark:hover:bg-neutral-100 shadow-lg shadow-black/15 dark:shadow-white/5 hover:shadow-xl rounded-xl cursor-pointer"
                                 onClick={handlePlayStore}
                             >
                                 <ion-icon name="logo-google-playstore" style={{ fontSize: '1.2rem' }}></ion-icon> 
                                 <span>{t('hero.playstore')}</span>
-                                <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                                <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                             </button>
 
                             <button 
                                 id="btn-microsoftstore" 
-                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 bg-neutral-100 hover:bg-neutral-200/90 dark:bg-neutral-900 dark:hover:bg-neutral-850 px-7 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-900 dark:text-white shadow-sm hover:shadow-md cursor-pointer"
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 bg-neutral-100 hover:bg-neutral-200/90 dark:bg-neutral-900 dark:hover:bg-neutral-850 px-7 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-900 dark:text-white shadow-sm hover:shadow-md rounded-xl cursor-pointer"
                                 onClick={handleMicrosoftStore}
                             >
                                 <ion-icon name="logo-windows" style={{ fontSize: '1.2rem' }}></ion-icon> 
                                 <span>{t('hero.microsoftstore')}</span>
-                                <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                                <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                             </button>
 
                             <a 
+                                id="btn-samnu-web"
+                                href="#web" 
+                                className="btn-fluid group inline-flex min-h-12 items-center justify-center gap-2.5 bg-neutral-100 hover:bg-neutral-200/90 dark:bg-neutral-900 dark:hover:bg-neutral-850 px-7 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-900 dark:text-white shadow-sm hover:shadow-md rounded-xl cursor-pointer"
+                            >
+                                <ion-icon name="globe-outline" style={{ fontSize: '1.2rem' }}></ion-icon> 
+                                <span>{t('hero.samnu_web')}</span>
+                                <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↓</span>
+                            </a>
+
+                            <a 
                                 href="#descargas" 
-                                className="btn-fluid inline-flex min-h-12 items-center justify-center gap-1.5 px-5 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                                className="btn-fluid inline-flex min-h-12 items-center justify-center gap-1.5 px-5 py-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white rounded-xl"
                             >
                                 <span>{t('hero.btn_direct_downloads')}</span>
-                                <span className="text-xs transition-transform duration-300 ease-out hover:translate-y-0.5">↓</span>
+                                <span className="text-xs transition-transform duration-500 ease-out hover:translate-y-0.5">↓</span>
                             </a>
                         </div>
                         <p className="text-xs text-neutral-400 dark:text-neutral-500 font-sans">

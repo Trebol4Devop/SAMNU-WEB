@@ -17,7 +17,7 @@ export default function Navbar() {
             const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
             setScrollProgress(scrolled);
 
-            const sections = ['inicio', 'caracteristicas', 'descargas', 'galeria', 'equipo'];
+            const sections = ['inicio', 'caracteristicas', 'descargas', 'web', 'galeria', 'equipo'];
             const scrollPosition = winScroll + 200;
 
             for (const sectionId of sections) {
@@ -41,6 +41,7 @@ export default function Navbar() {
         { id: 'inicio', label: t('nav.inicio') },
         { id: 'caracteristicas', label: t('nav.caracteristicas') },
         { id: 'descargas', label: t('nav.descargas') },
+        { id: 'web', label: t('nav.web') },
         { id: 'galeria', label: t('nav.galeria') },
         { id: 'equipo', label: t('nav.equipo') }
     ];
@@ -69,9 +70,9 @@ export default function Navbar() {
                         <img 
                             src="./assets/images-proyects/logos/Logo SANMU - sin fondo sin nombre.png" 
                             alt="Logo SAMNU" 
-                            className="h-8 sm:h-9 w-auto group-hover:scale-105 transition-transform duration-300" 
+                            className="h-8 sm:h-9 w-auto group-hover:scale-105 transition-transform duration-500 ease-out" 
                         />
-                        <span className="text-xl sm:text-2xl font-display font-bold tracking-tight text-neutral-900 dark:text-white group-hover:text-brand-primary transition-colors leading-none">
+                        <span className="text-xl sm:text-2xl font-display font-bold tracking-tight text-neutral-900 dark:text-white group-hover:text-brand-primary transition-colors duration-500 leading-none">
                             SAMNU
                         </span>
                     </a>
@@ -85,7 +86,7 @@ export default function Navbar() {
                                     <a 
                                         key={link.id}
                                         href={`#${link.id}`} 
-                                        className={`relative py-1 text-sm font-medium transition-colors duration-200 cursor-pointer ${
+                                        className={`relative py-1 text-sm font-medium transition-colors duration-500 ease-out cursor-pointer ${
                                             isActive 
                                                 ? 'text-brand-primary dark:text-blue-400 font-semibold' 
                                                 : 'text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white'
@@ -93,7 +94,7 @@ export default function Navbar() {
                                     >
                                         {link.label}
                                         {isActive && (
-                                            <span className="absolute -bottom-1.5 left-0 w-full h-[2px] bg-brand-primary dark:bg-blue-400 rounded-full transition-all duration-300" />
+                                            <span className="absolute -bottom-1.5 left-0 w-full h-[2px] bg-brand-primary dark:bg-blue-400 rounded-full transition-all duration-500 ease-out" />
                                         )}
                                     </a>
                                 );

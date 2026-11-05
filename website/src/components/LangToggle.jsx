@@ -21,7 +21,7 @@ export function LangToggle() {
     <div className="relative lang-dropdown">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors text-xs font-mono uppercase font-semibold text-neutral-700 dark:text-neutral-300 cursor-pointer"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-800/80 transition-all duration-500 ease-out text-xs font-mono uppercase font-semibold text-neutral-700 dark:text-neutral-300 cursor-pointer"
       >
         <Languages size={16} />
         <span>{(i18n.language || 'es').substring(0, 2)}</span>

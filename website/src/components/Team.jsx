@@ -38,14 +38,14 @@ function TeamTiltCard({ member, roleText }) {
                 onMouseLeave={handleMouseLeave}
                 style={{
                     transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) ${tilt.opacity > 0 ? 'scale3d(1.03, 1.03, 1.03)' : 'scale3d(1, 1, 1)'}`,
-                    transition: tilt.opacity === 0 ? 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)' : 'transform 0.1s ease-out',
+                    transition: tilt.opacity === 0 ? 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)' : 'transform 0.18s cubic-bezier(0.16, 1, 0.3, 1)',
                     transformStyle: 'preserve-3d'
                 }}
-                className="team-card relative overflow-hidden bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-8 shadow-sm hover:shadow-2xl transition-colors duration-300 flex flex-col items-center text-center cursor-default"
+                className="team-card relative overflow-hidden bg-neutral-100/70 hover:bg-neutral-100 dark:bg-neutral-900/60 dark:hover:bg-neutral-900 p-8 shadow-sm hover:shadow-2xl transition-all duration-500 ease-out flex flex-col items-center text-center cursor-default"
             >
                 {/* 3D Dynamic Glare / Specular Layer */}
                 <div 
-                    className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-500"
                     style={{
                         background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255,255,255,0.2) 0%, transparent 65%)`,
                         opacity: tilt.opacity
@@ -55,12 +55,12 @@ function TeamTiltCard({ member, roleText }) {
                 {/* Organic Circular Avatar (Seamless, no square-in-container artifacts) */}
                 <div 
                     style={{ transform: 'translateZ(30px)' }}
-                    className="w-24 h-24 rounded-full overflow-hidden mb-5 p-0.5 ring-2 ring-neutral-300/80 dark:ring-neutral-700/80 shadow-md transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="w-24 h-24 rounded-full overflow-hidden mb-5 p-0.5 ring-2 ring-neutral-300/80 dark:ring-neutral-700/80 shadow-md transition-transform duration-600 ease-out group-hover:scale-105"
                 >
                     <img 
                         src={member.avatar} 
                         alt={member.name} 
-                        className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-400 ease-out" 
+                        className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-600 ease-out" 
                         loading="lazy"
                     />
                 </div>
@@ -85,7 +85,7 @@ function TeamTiltCard({ member, roleText }) {
                     >
                         <ion-icon name="logo-github" style={{ fontSize: '1.05rem' }}></ion-icon>
                         <span>@{member.username}</span>
-                        <span className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        <span className="text-xs transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                     </a>
                 </div>
             </div>
